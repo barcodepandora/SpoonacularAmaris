@@ -16,9 +16,12 @@ class Foo {
     }
     
     func request() {
-        APIClient.request( completion: { (response) in
-            debugPrint(response)
-            self.vc!.presentRecipeList(resultsDecodable: response)
+        APIClient.requestRecipeList( completion: { (response, error) in
+            if let response = response {
+                self.vc!.presentRecipeList(resultsDecodable: response)
+            } else if let error = error {
+                self.vc!.presentError(error: error)
+            }
         })
     }
 }

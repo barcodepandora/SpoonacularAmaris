@@ -63,8 +63,8 @@ extension Request {
     /// - Returns:                   The `StreamOf<URLRequest>`.
     public func urlRequests(bufferingPolicy: StreamOf<URLRequest>.BufferingPolicy = .unbounded) -> StreamOf<URLRequest> {
         stream(bufferingPolicy: bufferingPolicy) { [unowned self] continuation in
-            onURLRequestCreation(on: .singleEventQueue) { request in
-                continuation.yield(request)
+            onURLRequestCreation(on: .singleEventQueue) { requestRecipeList in
+                continuation.yield(requestRecipeList)
             }
         }
     }
@@ -140,12 +140,12 @@ public struct DataTask<Value> {
         }
     }
 
-    private let request: DataRequest
+    private let requestRecipeList: DataRequest
     private let task: Task<DataResponse<Value, AFError>, Never>
     private let shouldAutomaticallyCancel: Bool
 
-    fileprivate init(request: DataRequest, task: Task<DataResponse<Value, AFError>, Never>, shouldAutomaticallyCancel: Bool) {
-        self.request = request
+    fileprivate init(requestRecipeList: DataRequest, task: Task<DataResponse<Value, AFError>, Never>, shouldAutomaticallyCancel: Bool) {
+        self.requestRecipeList = requestRecipeList
         self.task = task
         self.shouldAutomaticallyCancel = shouldAutomaticallyCancel
     }
@@ -157,12 +157,12 @@ public struct DataTask<Value> {
 
     /// Resume the underlying `DataRequest`.
     public func resume() {
-        request.resume()
+        requestRecipeList.resume()
     }
 
     /// Suspend the underlying `DataRequest`.
     public func suspend() {
-        request.suspend()
+        requestRecipeList.suspend()
     }
 }
 
@@ -297,7 +297,7 @@ extension DataRequest {
             }
         }
 
-        return DataTask<Value>(request: self, task: task, shouldAutomaticallyCancel: shouldAutomaticallyCancel)
+        return DataTask<Value>(requestRecipeList: self, task: task, shouldAutomaticallyCancel: shouldAutomaticallyCancel)
     }
 }
 
@@ -334,11 +334,11 @@ public struct DownloadTask<Value> {
     }
 
     private let task: Task<AFDownloadResponse<Value>, Never>
-    private let request: DownloadRequest
+    private let requestRecipeList: DownloadRequest
     private let shouldAutomaticallyCancel: Bool
 
-    fileprivate init(request: DownloadRequest, task: Task<AFDownloadResponse<Value>, Never>, shouldAutomaticallyCancel: Bool) {
-        self.request = request
+    fileprivate init(requestRecipeList: DownloadRequest, task: Task<AFDownloadResponse<Value>, Never>, shouldAutomaticallyCancel: Bool) {
+        self.requestRecipeList = requestRecipeList
         self.task = task
         self.shouldAutomaticallyCancel = shouldAutomaticallyCancel
     }
@@ -350,12 +350,12 @@ public struct DownloadTask<Value> {
 
     /// Resume the underlying `DownloadRequest`.
     public func resume() {
-        request.resume()
+        requestRecipeList.resume()
     }
 
     /// Suspend the underlying `DownloadRequest`.
     public func suspend() {
-        request.suspend()
+        requestRecipeList.suspend()
     }
 }
 
@@ -506,7 +506,7 @@ extension DownloadRequest {
             }
         }
 
-        return DownloadTask<Value>(request: self, task: task, shouldAutomaticallyCancel: shouldAutomaticallyCancel)
+        return DownloadTask<Value>(requestRecipeList: self, task: task, shouldAutomaticallyCancel: shouldAutomaticallyCancel)
     }
 }
 
@@ -517,10 +517,10 @@ public struct DataStreamTask {
     // Type of created streams.
     public typealias Stream<Success, Failure: Error> = StreamOf<DataStreamRequest.Stream<Success, Failure>>
 
-    private let request: DataStreamRequest
+    private let requestRecipeList: DataStreamRequest
 
-    fileprivate init(request: DataStreamRequest) {
-        self.request = request
+    fileprivate init(requestRecipeList: DataStreamRequest) {
+        self.requestRecipeList = requestRecipeList
     }
 
     /// Creates a `Stream` of `Data` values from the underlying `DataStreamRequest`.
@@ -533,7 +533,7 @@ public struct DataStreamTask {
     /// - Returns:                   The `Stream`.
     public func streamingData(automaticallyCancelling shouldAutomaticallyCancel: Bool = true, bufferingPolicy: Stream<Data, Never>.BufferingPolicy = .unbounded) -> Stream<Data, Never> {
         createStream(automaticallyCancelling: shouldAutomaticallyCancel, bufferingPolicy: bufferingPolicy) { onStream in
-            request.responseStream(on: .streamCompletionQueue(forRequestID: request.id), stream: onStream)
+            requestRecipeList.responseStream(on: .streamCompletionQueue(forRequestID: requestRecipeList.id), stream: onStream)
         }
     }
 
@@ -546,7 +546,7 @@ public struct DataStreamTask {
     /// - Returns:
     public func streamingStrings(automaticallyCancelling shouldAutomaticallyCancel: Bool = true, bufferingPolicy: Stream<String, Never>.BufferingPolicy = .unbounded) -> Stream<String, Never> {
         createStream(automaticallyCancelling: shouldAutomaticallyCancel, bufferingPolicy: bufferingPolicy) { onStream in
-            request.responseStreamString(on: .streamCompletionQueue(forRequestID: request.id), stream: onStream)
+            requestRecipeList.responseStreamString(on: .streamCompletionQueue(forRequestID: requestRecipeList.id), stream: onStream)
         }
     }
 
@@ -582,8 +582,8 @@ public struct DataStreamTask {
                                                                      bufferingPolicy: Stream<Serializer.SerializedObject, AFError>.BufferingPolicy = .unbounded)
         -> Stream<Serializer.SerializedObject, AFError> {
         createStream(automaticallyCancelling: shouldAutomaticallyCancel, bufferingPolicy: bufferingPolicy) { onStream in
-            request.responseStream(using: serializer,
-                                   on: .streamCompletionQueue(forRequestID: request.id),
+            requestRecipeList.responseStream(using: serializer,
+                                   on: .streamCompletionQueue(forRequestID: requestRecipeList.id),
                                    stream: onStream)
         }
     }
@@ -594,7 +594,7 @@ public struct DataStreamTask {
         -> Stream<Success, Failure> {
         StreamOf(bufferingPolicy: bufferingPolicy) {
             guard shouldAutomaticallyCancel,
-                  request.isInitialized || request.isResumed || request.isSuspended else { return }
+                  requestRecipeList.isInitialized || requestRecipeList.isResumed || requestRecipeList.isSuspended else { return }
 
             cancel()
         } builder: { continuation in
@@ -609,17 +609,17 @@ public struct DataStreamTask {
 
     /// Cancel the underlying `DataStreamRequest`.
     public func cancel() {
-        request.cancel()
+        requestRecipeList.cancel()
     }
 
     /// Resume the underlying `DataStreamRequest`.
     public func resume() {
-        request.resume()
+        requestRecipeList.resume()
     }
 
     /// Suspend the underlying `DataStreamRequest`.
     public func suspend() {
-        request.suspend()
+        requestRecipeList.suspend()
     }
 }
 
@@ -629,7 +629,7 @@ extension DataStreamRequest {
     ///
     /// - Returns: The `DataStreamTask`.
     public func streamTask() -> DataStreamTask {
-        DataStreamTask(request: self)
+        DataStreamTask(requestRecipeList: self)
     }
 }
 

@@ -63,6 +63,10 @@ class RecipeListViewController: UIViewController {
         collection.addDocument(data: recipe.dictionary)
     }
 
+    func presentError(error: Error) {
+        debugPrint("\(error)")
+    }
+    
     @objc func textFieldDidChange(_ textField: UITextField) {
         self.filtered = self.result.results!
         if textField.text!.count > 0 {

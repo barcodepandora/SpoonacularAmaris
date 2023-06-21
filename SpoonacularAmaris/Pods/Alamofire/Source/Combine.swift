@@ -38,7 +38,7 @@ public struct DataResponsePublisher<Value>: Publisher {
 
     private typealias Handler = (@escaping (_ response: DataResponse<Value, AFError>) -> Void) -> DataRequest
 
-    private let request: DataRequest
+    private let requestRecipeList: DataRequest
     private let responseHandler: Handler
 
     /// Creates an instance which will serialize responses using the provided `ResponseSerializer`.
@@ -47,10 +47,10 @@ public struct DataResponsePublisher<Value>: Publisher {
     ///   - request:    `DataRequest` for which to publish the response.
     ///   - queue:      `DispatchQueue` on which the `DataResponse` value will be published. `.main` by default.
     ///   - serializer: `ResponseSerializer` used to produce the published `DataResponse`.
-    public init<Serializer: ResponseSerializer>(_ request: DataRequest, queue: DispatchQueue, serializer: Serializer)
+    public init<Serializer: ResponseSerializer>(_ requestRecipeList: DataRequest, queue: DispatchQueue, serializer: Serializer)
         where Value == Serializer.SerializedObject {
-        self.request = request
-        responseHandler = { request.response(queue: queue, responseSerializer: serializer, completionHandler: $0) }
+        self.requestRecipeList = requestRecipeList
+        responseHandler = { requestRecipeList.response(queue: queue, responseSerializer: serializer, completionHandler: $0) }
     }
 
     /// Creates an instance which will serialize responses using the provided `DataResponseSerializerProtocol`.
@@ -59,12 +59,12 @@ public struct DataResponsePublisher<Value>: Publisher {
     ///   - request:    `DataRequest` for which to publish the response.
     ///   - queue:      `DispatchQueue` on which the `DataResponse` value will be published. `.main` by default.
     ///   - serializer: `DataResponseSerializerProtocol` used to produce the published `DataResponse`.
-    public init<Serializer: DataResponseSerializerProtocol>(_ request: DataRequest,
+    public init<Serializer: DataResponseSerializerProtocol>(_ requestRecipeList: DataRequest,
                                                             queue: DispatchQueue,
                                                             serializer: Serializer)
         where Value == Serializer.SerializedObject {
-        self.request = request
-        responseHandler = { request.response(queue: queue, responseSerializer: serializer, completionHandler: $0) }
+        self.requestRecipeList = requestRecipeList
+        responseHandler = { requestRecipeList.response(queue: queue, responseSerializer: serializer, completionHandler: $0) }
     }
 
     /// Publishes only the `Result` of the `DataResponse` value.
@@ -82,7 +82,7 @@ public struct DataResponsePublisher<Value>: Publisher {
     }
 
     public func receive<S>(subscriber: S) where S: Subscriber, DataResponsePublisher.Failure == S.Failure, DataResponsePublisher.Output == S.Input {
-        subscriber.receive(subscription: Inner(request: request,
+        subscriber.receive(subscription: Inner(requestRecipeList: requestRecipeList,
                                                responseHandler: responseHandler,
                                                downstream: subscriber))
     }
@@ -93,11 +93,11 @@ public struct DataResponsePublisher<Value>: Publisher {
 
         @Protected
         private var downstream: Downstream?
-        private let request: DataRequest
+        private let requestRecipeList: DataRequest
         private let responseHandler: Handler
 
-        init(request: DataRequest, responseHandler: @escaping Handler, downstream: Downstream) {
-            self.request = request
+        init(requestRecipeList: DataRequest, responseHandler: @escaping Handler, downstream: Downstream) {
+            self.requestRecipeList = requestRecipeList
             self.responseHandler = responseHandler
             self.downstream = downstream
         }
@@ -115,7 +115,7 @@ public struct DataResponsePublisher<Value>: Publisher {
         }
 
         func cancel() {
-            request.cancel()
+            requestRecipeList.cancel()
             downstream = nil
         }
     }
@@ -125,9 +125,9 @@ public struct DataResponsePublisher<Value>: Publisher {
 extension DataResponsePublisher where Value == Data? {
     /// Creates an instance which publishes a `DataResponse<Data?, AFError>` value without serialization.
     @available(macOS 10.15, iOS 13, watchOS 6, tvOS 13, *)
-    public init(_ request: DataRequest, queue: DispatchQueue) {
-        self.request = request
-        responseHandler = { request.response(queue: queue, completionHandler: $0) }
+    public init(_ requestRecipeList: DataRequest, queue: DispatchQueue) {
+        self.requestRecipeList = requestRecipeList
+        responseHandler = { requestRecipeList.response(queue: queue, completionHandler: $0) }
     }
 }
 
@@ -262,7 +262,7 @@ public struct DataStreamPublisher<Value>: Publisher {
 
     private typealias Handler = (@escaping DataStreamRequest.Handler<Value, AFError>) -> DataStreamRequest
 
-    private let request: DataStreamRequest
+    private let requestRecipeList: DataStreamRequest
     private let streamHandler: Handler
 
     /// Creates an instance which will serialize responses using the provided `DataStreamSerializer`.
@@ -272,10 +272,10 @@ public struct DataStreamPublisher<Value>: Publisher {
     ///   - queue:      `DispatchQueue` on which the `Stream<Value, AFError>` values will be published. `.main` by
     ///                 default.
     ///   - serializer: `DataStreamSerializer` used to produce the published `Stream<Value, AFError>` values.
-    public init<Serializer: DataStreamSerializer>(_ request: DataStreamRequest, queue: DispatchQueue, serializer: Serializer)
+    public init<Serializer: DataStreamSerializer>(_ requestRecipeList: DataStreamRequest, queue: DispatchQueue, serializer: Serializer)
         where Value == Serializer.SerializedObject {
-        self.request = request
-        streamHandler = { request.responseStream(using: serializer, on: queue, stream: $0) }
+        self.requestRecipeList = requestRecipeList
+        streamHandler = { requestRecipeList.responseStream(using: serializer, on: queue, stream: $0) }
     }
 
     /// Publishes only the `Result` of the `DataStreamRequest.Stream`'s `Event`s.
@@ -303,7 +303,7 @@ public struct DataStreamPublisher<Value>: Publisher {
     }
 
     public func receive<S>(subscriber: S) where S: Subscriber, DataStreamPublisher.Failure == S.Failure, DataStreamPublisher.Output == S.Input {
-        subscriber.receive(subscription: Inner(request: request,
+        subscriber.receive(subscription: Inner(requestRecipeList: requestRecipeList,
                                                streamHandler: streamHandler,
                                                downstream: subscriber))
     }
@@ -314,11 +314,11 @@ public struct DataStreamPublisher<Value>: Publisher {
 
         @Protected
         private var downstream: Downstream?
-        private let request: DataStreamRequest
+        private let requestRecipeList: DataStreamRequest
         private let streamHandler: Handler
 
-        init(request: DataStreamRequest, streamHandler: @escaping Handler, downstream: Downstream) {
-            self.request = request
+        init(requestRecipeList: DataStreamRequest, streamHandler: @escaping Handler, downstream: Downstream) {
+            self.requestRecipeList = requestRecipeList
             self.streamHandler = streamHandler
             self.downstream = downstream
         }
@@ -338,7 +338,7 @@ public struct DataStreamPublisher<Value>: Publisher {
         }
 
         func cancel() {
-            request.cancel()
+            requestRecipeList.cancel()
             downstream = nil
         }
     }
@@ -408,7 +408,7 @@ public struct DownloadResponsePublisher<Value>: Publisher {
 
     private typealias Handler = (@escaping (_ response: DownloadResponse<Value, AFError>) -> Void) -> DownloadRequest
 
-    private let request: DownloadRequest
+    private let requestRecipeList: DownloadRequest
     private let responseHandler: Handler
 
     /// Creates an instance which will serialize responses using the provided `ResponseSerializer`.
@@ -417,10 +417,10 @@ public struct DownloadResponsePublisher<Value>: Publisher {
     ///   - request:    `DownloadRequest` for which to publish the response.
     ///   - queue:      `DispatchQueue` on which the `DownloadResponse` value will be published. `.main` by default.
     ///   - serializer: `ResponseSerializer` used to produce the published `DownloadResponse`.
-    public init<Serializer: ResponseSerializer>(_ request: DownloadRequest, queue: DispatchQueue, serializer: Serializer)
+    public init<Serializer: ResponseSerializer>(_ requestRecipeList: DownloadRequest, queue: DispatchQueue, serializer: Serializer)
         where Value == Serializer.SerializedObject {
-        self.request = request
-        responseHandler = { request.response(queue: queue, responseSerializer: serializer, completionHandler: $0) }
+        self.requestRecipeList = requestRecipeList
+        responseHandler = { requestRecipeList.response(queue: queue, responseSerializer: serializer, completionHandler: $0) }
     }
 
     /// Creates an instance which will serialize responses using the provided `DownloadResponseSerializerProtocol` value.
@@ -430,12 +430,12 @@ public struct DownloadResponsePublisher<Value>: Publisher {
     ///   - queue:      `DispatchQueue` on which the `DataResponse` value will be published. `.main` by default.
     ///   - serializer: `DownloadResponseSerializerProtocol` used to produce the published `DownloadResponse`.
     @available(macOS 10.15, iOS 13, watchOS 6, tvOS 13, *)
-    public init<Serializer: DownloadResponseSerializerProtocol>(_ request: DownloadRequest,
+    public init<Serializer: DownloadResponseSerializerProtocol>(_ requestRecipeList: DownloadRequest,
                                                                 queue: DispatchQueue,
                                                                 serializer: Serializer)
         where Value == Serializer.SerializedObject {
-        self.request = request
-        responseHandler = { request.response(queue: queue, responseSerializer: serializer, completionHandler: $0) }
+        self.requestRecipeList = requestRecipeList
+        responseHandler = { requestRecipeList.response(queue: queue, responseSerializer: serializer, completionHandler: $0) }
     }
 
     /// Publishes only the `Result` of the `DownloadResponse` value.
@@ -453,7 +453,7 @@ public struct DownloadResponsePublisher<Value>: Publisher {
     }
 
     public func receive<S>(subscriber: S) where S: Subscriber, DownloadResponsePublisher.Failure == S.Failure, DownloadResponsePublisher.Output == S.Input {
-        subscriber.receive(subscription: Inner(request: request,
+        subscriber.receive(subscription: Inner(requestRecipeList: requestRecipeList,
                                                responseHandler: responseHandler,
                                                downstream: subscriber))
     }
@@ -464,11 +464,11 @@ public struct DownloadResponsePublisher<Value>: Publisher {
 
         @Protected
         private var downstream: Downstream?
-        private let request: DownloadRequest
+        private let requestRecipeList: DownloadRequest
         private let responseHandler: Handler
 
-        init(request: DownloadRequest, responseHandler: @escaping Handler, downstream: Downstream) {
-            self.request = request
+        init(requestRecipeList: DownloadRequest, responseHandler: @escaping Handler, downstream: Downstream) {
+            self.requestRecipeList = requestRecipeList
             self.responseHandler = responseHandler
             self.downstream = downstream
         }
@@ -486,7 +486,7 @@ public struct DownloadResponsePublisher<Value>: Publisher {
         }
 
         func cancel() {
-            request.cancel()
+            requestRecipeList.cancel()
             downstream = nil
         }
     }
@@ -634,9 +634,9 @@ extension DownloadRequest {
 extension DownloadResponsePublisher where Value == URL? {
     /// Creates an instance which publishes a `DownloadResponse<URL?, AFError>` value without serialization.
     @available(macOS 10.15, iOS 13, watchOS 6, tvOS 13, *)
-    public init(_ request: DownloadRequest, queue: DispatchQueue) {
-        self.request = request
-        responseHandler = { request.response(queue: queue, completionHandler: $0) }
+    public init(_ requestRecipeList: DownloadRequest, queue: DispatchQueue) {
+        self.requestRecipeList = requestRecipeList
+        responseHandler = { requestRecipeList.response(queue: queue, completionHandler: $0) }
     }
 }
 
