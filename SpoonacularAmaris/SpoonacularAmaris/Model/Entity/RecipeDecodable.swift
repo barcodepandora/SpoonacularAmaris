@@ -7,7 +7,23 @@
 
 import Foundation
 
-struct Recipe {
+enum Recipe {
+    struct Response {
+        var id: Int
+        var title: String
+        var image: String
+        var imageType: String
+    }
+    
+    struct ViewModel {
+        var id: Int
+        var title: String
+        var image: String
+        var imageType: String
+    }
+}
+
+struct RecipeData {
     var id: Int?
     var title: String?
     var image: String?

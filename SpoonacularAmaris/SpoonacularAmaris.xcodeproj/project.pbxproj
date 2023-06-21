@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		29F9F1029382DF51CB03FB03 /* Pods_SpoonacularAmaris_SpoonacularAmarisUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E1834EFDE016ABA8839146E /* Pods_SpoonacularAmaris_SpoonacularAmarisUITests.framework */; };
 		56CB25042A43261300E09B6F /* RecipeListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CB25032A43261300E09B6F /* RecipeListTests.swift */; };
+		56CB25082A437CE300E09B6F /* RecipeListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CB25072A437CE300E09B6F /* RecipeListInteractor.swift */; };
+		56CB250A2A437DB600E09B6F /* RecipeListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CB25092A437DB600E09B6F /* RecipeListPresenter.swift */; };
 		56F24E2A2A425BFC00A20305 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F24E292A425BFC00A20305 /* AppDelegate.swift */; };
 		56F24E2C2A425BFC00A20305 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F24E2B2A425BFC00A20305 /* SceneDelegate.swift */; };
 		56F24E2E2A425BFC00A20305 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F24E2D2A425BFC00A20305 /* ViewController.swift */; };
@@ -19,7 +21,6 @@
 		56F24E442A425C0100A20305 /* SpoonacularAmarisTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F24E432A425C0100A20305 /* SpoonacularAmarisTests.swift */; };
 		56F24E4E2A425C0100A20305 /* SpoonacularAmarisUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F24E4D2A425C0100A20305 /* SpoonacularAmarisUITests.swift */; };
 		56F24E502A425C0100A20305 /* SpoonacularAmarisUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F24E4F2A425C0100A20305 /* SpoonacularAmarisUITestsLaunchTests.swift */; };
-		56F24E5D2A425C4B00A20305 /* Foo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F24E5C2A425C4B00A20305 /* Foo.swift */; };
 		56F24E5F2A425C7F00A20305 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F24E5E2A425C7F00A20305 /* APIClient.swift */; };
 		56F24E622A42615100A20305 /* ResultsDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F24E612A42615100A20305 /* ResultsDecodable.swift */; };
 		56F24E642A4261FE00A20305 /* RecipeDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F24E632A4261FE00A20305 /* RecipeDecodable.swift */; };
@@ -57,6 +58,8 @@
 		3E1834EFDE016ABA8839146E /* Pods_SpoonacularAmaris_SpoonacularAmarisUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpoonacularAmaris_SpoonacularAmarisUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5474630E4861D81B216FC5AA /* Pods-SpoonacularAmaris.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpoonacularAmaris.debug.xcconfig"; path = "Target Support Files/Pods-SpoonacularAmaris/Pods-SpoonacularAmaris.debug.xcconfig"; sourceTree = "<group>"; };
 		56CB25032A43261300E09B6F /* RecipeListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListTests.swift; sourceTree = "<group>"; };
+		56CB25072A437CE300E09B6F /* RecipeListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListInteractor.swift; sourceTree = "<group>"; };
+		56CB25092A437DB600E09B6F /* RecipeListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListPresenter.swift; sourceTree = "<group>"; };
 		56F24E262A425BFC00A20305 /* SpoonacularAmaris.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpoonacularAmaris.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56F24E292A425BFC00A20305 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		56F24E2B2A425BFC00A20305 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,7 +74,6 @@
 		56F24E492A425C0100A20305 /* SpoonacularAmarisUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpoonacularAmarisUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		56F24E4D2A425C0100A20305 /* SpoonacularAmarisUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpoonacularAmarisUITests.swift; sourceTree = "<group>"; };
 		56F24E4F2A425C0100A20305 /* SpoonacularAmarisUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpoonacularAmarisUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		56F24E5C2A425C4B00A20305 /* Foo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Foo.swift; sourceTree = "<group>"; };
 		56F24E5E2A425C7F00A20305 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		56F24E612A42615100A20305 /* ResultsDecodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsDecodable.swift; sourceTree = "<group>"; };
 		56F24E632A4261FE00A20305 /* RecipeDecodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDecodable.swift; sourceTree = "<group>"; };
@@ -117,6 +119,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		56CB250B2A437E8F00E09B6F /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				56F24E612A42615100A20305 /* ResultsDecodable.swift */,
+				56F24E632A4261FE00A20305 /* RecipeDecodable.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
 		56F24E1D2A425BFC00A20305 = {
 			isa = PBXGroup;
 			children = (
@@ -146,7 +157,6 @@
 				56F24E292A425BFC00A20305 /* AppDelegate.swift */,
 				56F24E2B2A425BFC00A20305 /* SceneDelegate.swift */,
 				56F24E2D2A425BFC00A20305 /* ViewController.swift */,
-				56F24E5C2A425C4B00A20305 /* Foo.swift */,
 				56F24E5E2A425C7F00A20305 /* APIClient.swift */,
 				56F24E2F2A425BFC00A20305 /* Main.storyboard */,
 				56F24E352A425C0100A20305 /* Assets.xcassets */,
@@ -179,10 +189,9 @@
 		56F24E602A4260BE00A20305 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				56CB250B2A437E8F00E09B6F /* Entity */,
 				56F24E722A42885400A20305 /* Recipe */,
 				56F24E652A4275A000A20305 /* RecipeList */,
-				56F24E612A42615100A20305 /* ResultsDecodable.swift */,
-				56F24E632A4261FE00A20305 /* RecipeDecodable.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -194,6 +203,8 @@
 				56F24E6B2A42761400A20305 /* RecipeListViewController.xib */,
 				56F24E6E2A427CD000A20305 /* RecipeListTableViewCell.swift */,
 				56F24E6F2A427CD000A20305 /* RecipeListTableViewCell.xib */,
+				56CB25072A437CE300E09B6F /* RecipeListInteractor.swift */,
+				56CB25092A437DB600E09B6F /* RecipeListPresenter.swift */,
 			);
 			path = RecipeList;
 			sourceTree = "<group>";
@@ -474,13 +485,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				56F24E6C2A42761400A20305 /* RecipeListViewController.swift in Sources */,
+				56CB250A2A437DB600E09B6F /* RecipeListPresenter.swift in Sources */,
 				56F24E702A427CD000A20305 /* RecipeListTableViewCell.swift in Sources */,
 				56F24E2E2A425BFC00A20305 /* ViewController.swift in Sources */,
 				56F24E622A42615100A20305 /* ResultsDecodable.swift in Sources */,
+				56CB25082A437CE300E09B6F /* RecipeListInteractor.swift in Sources */,
 				56F24E2A2A425BFC00A20305 /* AppDelegate.swift in Sources */,
 				56F24E752A42887700A20305 /* RecipeViewController.swift in Sources */,
 				56F24E642A4261FE00A20305 /* RecipeDecodable.swift in Sources */,
-				56F24E5D2A425C4B00A20305 /* Foo.swift in Sources */,
 				56F24E342A425BFC00A20305 /* SpoonacularAmaris.xcdatamodeld in Sources */,
 				56F24E2C2A425BFC00A20305 /* SceneDelegate.swift in Sources */,
 				56F24E5F2A425C7F00A20305 /* APIClient.swift in Sources */,

@@ -18,8 +18,4 @@ class ResultsDecodable: Decodable{
         let values = try decoder.container(keyedBy: CodingKeys.self)
         self.results = try? values.decode([RecipeDecodable].self, forKey: .results)
     }
-//
-//    public init(data: [UserDecodable]) {
-//        self.data = data
-//    }
 }
