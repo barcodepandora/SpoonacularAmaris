@@ -1,0 +1,842 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		29F9F1029382DF51CB03FB03 /* Pods_SpoonacularAmaris_SpoonacularAmarisUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E1834EFDE016ABA8839146E /* Pods_SpoonacularAmaris_SpoonacularAmarisUITests.framework */; };
+		56F24E2A2A425BFC00A20305 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F24E292A425BFC00A20305 /* AppDelegate.swift */; };
+		56F24E2C2A425BFC00A20305 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F24E2B2A425BFC00A20305 /* SceneDelegate.swift */; };
+		56F24E2E2A425BFC00A20305 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F24E2D2A425BFC00A20305 /* ViewController.swift */; };
+		56F24E312A425BFC00A20305 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56F24E2F2A425BFC00A20305 /* Main.storyboard */; };
+		56F24E342A425BFC00A20305 /* SpoonacularAmaris.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 56F24E322A425BFC00A20305 /* SpoonacularAmaris.xcdatamodeld */; };
+		56F24E362A425C0100A20305 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56F24E352A425C0100A20305 /* Assets.xcassets */; };
+		56F24E392A425C0100A20305 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56F24E372A425C0100A20305 /* LaunchScreen.storyboard */; };
+		56F24E442A425C0100A20305 /* SpoonacularAmarisTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F24E432A425C0100A20305 /* SpoonacularAmarisTests.swift */; };
+		56F24E4E2A425C0100A20305 /* SpoonacularAmarisUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F24E4D2A425C0100A20305 /* SpoonacularAmarisUITests.swift */; };
+		56F24E502A425C0100A20305 /* SpoonacularAmarisUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F24E4F2A425C0100A20305 /* SpoonacularAmarisUITestsLaunchTests.swift */; };
+		56F24E5D2A425C4B00A20305 /* Foo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F24E5C2A425C4B00A20305 /* Foo.swift */; };
+		56F24E5F2A425C7F00A20305 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F24E5E2A425C7F00A20305 /* APIClient.swift */; };
+		56F24E622A42615100A20305 /* ResultsDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F24E612A42615100A20305 /* ResultsDecodable.swift */; };
+		56F24E642A4261FE00A20305 /* RecipeDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F24E632A4261FE00A20305 /* RecipeDecodable.swift */; };
+		56F24E6C2A42761400A20305 /* RecipeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F24E6A2A42761400A20305 /* RecipeListViewController.swift */; };
+		56F24E6D2A42761400A20305 /* RecipeListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56F24E6B2A42761400A20305 /* RecipeListViewController.xib */; };
+		56F24E702A427CD000A20305 /* RecipeListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F24E6E2A427CD000A20305 /* RecipeListTableViewCell.swift */; };
+		56F24E712A427CD000A20305 /* RecipeListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56F24E6F2A427CD000A20305 /* RecipeListTableViewCell.xib */; };
+		56F24E752A42887700A20305 /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F24E732A42887700A20305 /* RecipeViewController.swift */; };
+		56F24E762A42887700A20305 /* RecipeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56F24E742A42887700A20305 /* RecipeViewController.xib */; };
+		66E34DC9F6FF7694677CD1D2 /* Pods_SpoonacularAmarisTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCD1F49AD6AE58D2B5C075D /* Pods_SpoonacularAmarisTests.framework */; };
+		B83D5D18F49A5BCC3465DE62 /* Pods_SpoonacularAmaris.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DC122DC069998307EFA3222 /* Pods_SpoonacularAmaris.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		56F24E402A425C0100A20305 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56F24E1E2A425BFC00A20305 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 56F24E252A425BFC00A20305;
+			remoteInfo = SpoonacularAmaris;
+		};
+		56F24E4A2A425C0100A20305 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56F24E1E2A425BFC00A20305 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 56F24E252A425BFC00A20305;
+			remoteInfo = SpoonacularAmaris;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0D88079E86425FB6B8EECF8E /* Pods-SpoonacularAmaris-SpoonacularAmarisUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpoonacularAmaris-SpoonacularAmarisUITests.debug.xcconfig"; path = "Target Support Files/Pods-SpoonacularAmaris-SpoonacularAmarisUITests/Pods-SpoonacularAmaris-SpoonacularAmarisUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		2B90D55B4BC0481CF293BBAD /* Pods-SpoonacularAmaris.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpoonacularAmaris.release.xcconfig"; path = "Target Support Files/Pods-SpoonacularAmaris/Pods-SpoonacularAmaris.release.xcconfig"; sourceTree = "<group>"; };
+		3E1834EFDE016ABA8839146E /* Pods_SpoonacularAmaris_SpoonacularAmarisUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpoonacularAmaris_SpoonacularAmarisUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5474630E4861D81B216FC5AA /* Pods-SpoonacularAmaris.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpoonacularAmaris.debug.xcconfig"; path = "Target Support Files/Pods-SpoonacularAmaris/Pods-SpoonacularAmaris.debug.xcconfig"; sourceTree = "<group>"; };
+		56F24E262A425BFC00A20305 /* SpoonacularAmaris.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpoonacularAmaris.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		56F24E292A425BFC00A20305 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		56F24E2B2A425BFC00A20305 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		56F24E2D2A425BFC00A20305 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		56F24E302A425BFC00A20305 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		56F24E332A425BFC00A20305 /* SpoonacularAmaris.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SpoonacularAmaris.xcdatamodel; sourceTree = "<group>"; };
+		56F24E352A425C0100A20305 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		56F24E382A425C0100A20305 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		56F24E3A2A425C0100A20305 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		56F24E3F2A425C0100A20305 /* SpoonacularAmarisTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpoonacularAmarisTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		56F24E432A425C0100A20305 /* SpoonacularAmarisTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpoonacularAmarisTests.swift; sourceTree = "<group>"; };
+		56F24E492A425C0100A20305 /* SpoonacularAmarisUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpoonacularAmarisUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		56F24E4D2A425C0100A20305 /* SpoonacularAmarisUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpoonacularAmarisUITests.swift; sourceTree = "<group>"; };
+		56F24E4F2A425C0100A20305 /* SpoonacularAmarisUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpoonacularAmarisUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		56F24E5C2A425C4B00A20305 /* Foo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Foo.swift; sourceTree = "<group>"; };
+		56F24E5E2A425C7F00A20305 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		56F24E612A42615100A20305 /* ResultsDecodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsDecodable.swift; sourceTree = "<group>"; };
+		56F24E632A4261FE00A20305 /* RecipeDecodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDecodable.swift; sourceTree = "<group>"; };
+		56F24E6A2A42761400A20305 /* RecipeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListViewController.swift; sourceTree = "<group>"; };
+		56F24E6B2A42761400A20305 /* RecipeListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeListViewController.xib; sourceTree = "<group>"; };
+		56F24E6E2A427CD000A20305 /* RecipeListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListTableViewCell.swift; sourceTree = "<group>"; };
+		56F24E6F2A427CD000A20305 /* RecipeListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeListTableViewCell.xib; sourceTree = "<group>"; };
+		56F24E732A42887700A20305 /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
+		56F24E742A42887700A20305 /* RecipeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeViewController.xib; sourceTree = "<group>"; };
+		5DD038E520D52A9AEEBECD27 /* Pods-SpoonacularAmaris-SpoonacularAmarisUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpoonacularAmaris-SpoonacularAmarisUITests.release.xcconfig"; path = "Target Support Files/Pods-SpoonacularAmaris-SpoonacularAmarisUITests/Pods-SpoonacularAmaris-SpoonacularAmarisUITests.release.xcconfig"; sourceTree = "<group>"; };
+		7DC122DC069998307EFA3222 /* Pods_SpoonacularAmaris.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpoonacularAmaris.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BCD1F49AD6AE58D2B5C075D /* Pods_SpoonacularAmarisTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpoonacularAmarisTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0AE00077995FF212A387062 /* Pods-SpoonacularAmarisTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpoonacularAmarisTests.release.xcconfig"; path = "Target Support Files/Pods-SpoonacularAmarisTests/Pods-SpoonacularAmarisTests.release.xcconfig"; sourceTree = "<group>"; };
+		E2F12DA7F4729F372F706D5F /* Pods-SpoonacularAmarisTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpoonacularAmarisTests.debug.xcconfig"; path = "Target Support Files/Pods-SpoonacularAmarisTests/Pods-SpoonacularAmarisTests.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		56F24E232A425BFC00A20305 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B83D5D18F49A5BCC3465DE62 /* Pods_SpoonacularAmaris.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56F24E3C2A425C0100A20305 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				66E34DC9F6FF7694677CD1D2 /* Pods_SpoonacularAmarisTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56F24E462A425C0100A20305 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				29F9F1029382DF51CB03FB03 /* Pods_SpoonacularAmaris_SpoonacularAmarisUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		56F24E1D2A425BFC00A20305 = {
+			isa = PBXGroup;
+			children = (
+				56F24E282A425BFC00A20305 /* SpoonacularAmaris */,
+				56F24E422A425C0100A20305 /* SpoonacularAmarisTests */,
+				56F24E4C2A425C0100A20305 /* SpoonacularAmarisUITests */,
+				56F24E272A425BFC00A20305 /* Products */,
+				67F638704457B9F80B91325B /* Pods */,
+				72D8F97623C7DD3BFC4AD126 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		56F24E272A425BFC00A20305 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				56F24E262A425BFC00A20305 /* SpoonacularAmaris.app */,
+				56F24E3F2A425C0100A20305 /* SpoonacularAmarisTests.xctest */,
+				56F24E492A425C0100A20305 /* SpoonacularAmarisUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		56F24E282A425BFC00A20305 /* SpoonacularAmaris */ = {
+			isa = PBXGroup;
+			children = (
+				56F24E602A4260BE00A20305 /* Model */,
+				56F24E292A425BFC00A20305 /* AppDelegate.swift */,
+				56F24E2B2A425BFC00A20305 /* SceneDelegate.swift */,
+				56F24E2D2A425BFC00A20305 /* ViewController.swift */,
+				56F24E5C2A425C4B00A20305 /* Foo.swift */,
+				56F24E5E2A425C7F00A20305 /* APIClient.swift */,
+				56F24E2F2A425BFC00A20305 /* Main.storyboard */,
+				56F24E352A425C0100A20305 /* Assets.xcassets */,
+				56F24E372A425C0100A20305 /* LaunchScreen.storyboard */,
+				56F24E3A2A425C0100A20305 /* Info.plist */,
+				56F24E322A425BFC00A20305 /* SpoonacularAmaris.xcdatamodeld */,
+			);
+			path = SpoonacularAmaris;
+			sourceTree = "<group>";
+		};
+		56F24E422A425C0100A20305 /* SpoonacularAmarisTests */ = {
+			isa = PBXGroup;
+			children = (
+				56F24E432A425C0100A20305 /* SpoonacularAmarisTests.swift */,
+			);
+			path = SpoonacularAmarisTests;
+			sourceTree = "<group>";
+		};
+		56F24E4C2A425C0100A20305 /* SpoonacularAmarisUITests */ = {
+			isa = PBXGroup;
+			children = (
+				56F24E4D2A425C0100A20305 /* SpoonacularAmarisUITests.swift */,
+				56F24E4F2A425C0100A20305 /* SpoonacularAmarisUITestsLaunchTests.swift */,
+			);
+			path = SpoonacularAmarisUITests;
+			sourceTree = "<group>";
+		};
+		56F24E602A4260BE00A20305 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				56F24E722A42885400A20305 /* Recipe */,
+				56F24E652A4275A000A20305 /* RecipeList */,
+				56F24E612A42615100A20305 /* ResultsDecodable.swift */,
+				56F24E632A4261FE00A20305 /* RecipeDecodable.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		56F24E652A4275A000A20305 /* RecipeList */ = {
+			isa = PBXGroup;
+			children = (
+				56F24E6A2A42761400A20305 /* RecipeListViewController.swift */,
+				56F24E6B2A42761400A20305 /* RecipeListViewController.xib */,
+				56F24E6E2A427CD000A20305 /* RecipeListTableViewCell.swift */,
+				56F24E6F2A427CD000A20305 /* RecipeListTableViewCell.xib */,
+			);
+			path = RecipeList;
+			sourceTree = "<group>";
+		};
+		56F24E722A42885400A20305 /* Recipe */ = {
+			isa = PBXGroup;
+			children = (
+				56F24E732A42887700A20305 /* RecipeViewController.swift */,
+				56F24E742A42887700A20305 /* RecipeViewController.xib */,
+			);
+			path = Recipe;
+			sourceTree = "<group>";
+		};
+		67F638704457B9F80B91325B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5474630E4861D81B216FC5AA /* Pods-SpoonacularAmaris.debug.xcconfig */,
+				2B90D55B4BC0481CF293BBAD /* Pods-SpoonacularAmaris.release.xcconfig */,
+				0D88079E86425FB6B8EECF8E /* Pods-SpoonacularAmaris-SpoonacularAmarisUITests.debug.xcconfig */,
+				5DD038E520D52A9AEEBECD27 /* Pods-SpoonacularAmaris-SpoonacularAmarisUITests.release.xcconfig */,
+				E2F12DA7F4729F372F706D5F /* Pods-SpoonacularAmarisTests.debug.xcconfig */,
+				B0AE00077995FF212A387062 /* Pods-SpoonacularAmarisTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		72D8F97623C7DD3BFC4AD126 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7DC122DC069998307EFA3222 /* Pods_SpoonacularAmaris.framework */,
+				3E1834EFDE016ABA8839146E /* Pods_SpoonacularAmaris_SpoonacularAmarisUITests.framework */,
+				9BCD1F49AD6AE58D2B5C075D /* Pods_SpoonacularAmarisTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		56F24E252A425BFC00A20305 /* SpoonacularAmaris */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 56F24E532A425C0100A20305 /* Build configuration list for PBXNativeTarget "SpoonacularAmaris" */;
+			buildPhases = (
+				D6B676E4EC1A25D2F5E6A8C5 /* [CP] Check Pods Manifest.lock */,
+				56F24E222A425BFC00A20305 /* Sources */,
+				56F24E232A425BFC00A20305 /* Frameworks */,
+				56F24E242A425BFC00A20305 /* Resources */,
+				26271A354617C8AB1A90579C /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SpoonacularAmaris;
+			productName = SpoonacularAmaris;
+			productReference = 56F24E262A425BFC00A20305 /* SpoonacularAmaris.app */;
+			productType = "com.apple.product-type.application";
+		};
+		56F24E3E2A425C0100A20305 /* SpoonacularAmarisTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 56F24E562A425C0100A20305 /* Build configuration list for PBXNativeTarget "SpoonacularAmarisTests" */;
+			buildPhases = (
+				EFBFA53CE6B2E59D03DBACE5 /* [CP] Check Pods Manifest.lock */,
+				56F24E3B2A425C0100A20305 /* Sources */,
+				56F24E3C2A425C0100A20305 /* Frameworks */,
+				56F24E3D2A425C0100A20305 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				56F24E412A425C0100A20305 /* PBXTargetDependency */,
+			);
+			name = SpoonacularAmarisTests;
+			productName = SpoonacularAmarisTests;
+			productReference = 56F24E3F2A425C0100A20305 /* SpoonacularAmarisTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		56F24E482A425C0100A20305 /* SpoonacularAmarisUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 56F24E592A425C0100A20305 /* Build configuration list for PBXNativeTarget "SpoonacularAmarisUITests" */;
+			buildPhases = (
+				CBE23BDDDC2C7E208645914C /* [CP] Check Pods Manifest.lock */,
+				56F24E452A425C0100A20305 /* Sources */,
+				56F24E462A425C0100A20305 /* Frameworks */,
+				56F24E472A425C0100A20305 /* Resources */,
+				8391C62B31CEE04314E8CFAB /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				56F24E4B2A425C0100A20305 /* PBXTargetDependency */,
+			);
+			name = SpoonacularAmarisUITests;
+			productName = SpoonacularAmarisUITests;
+			productReference = 56F24E492A425C0100A20305 /* SpoonacularAmarisUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		56F24E1E2A425BFC00A20305 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					56F24E252A425BFC00A20305 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					56F24E3E2A425C0100A20305 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 56F24E252A425BFC00A20305;
+					};
+					56F24E482A425C0100A20305 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 56F24E252A425BFC00A20305;
+					};
+				};
+			};
+			buildConfigurationList = 56F24E212A425BFC00A20305 /* Build configuration list for PBXProject "SpoonacularAmaris" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 56F24E1D2A425BFC00A20305;
+			productRefGroup = 56F24E272A425BFC00A20305 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				56F24E252A425BFC00A20305 /* SpoonacularAmaris */,
+				56F24E3E2A425C0100A20305 /* SpoonacularAmarisTests */,
+				56F24E482A425C0100A20305 /* SpoonacularAmarisUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		56F24E242A425BFC00A20305 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56F24E392A425C0100A20305 /* LaunchScreen.storyboard in Resources */,
+				56F24E712A427CD000A20305 /* RecipeListTableViewCell.xib in Resources */,
+				56F24E6D2A42761400A20305 /* RecipeListViewController.xib in Resources */,
+				56F24E362A425C0100A20305 /* Assets.xcassets in Resources */,
+				56F24E762A42887700A20305 /* RecipeViewController.xib in Resources */,
+				56F24E312A425BFC00A20305 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56F24E3D2A425C0100A20305 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56F24E472A425C0100A20305 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		26271A354617C8AB1A90579C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SpoonacularAmaris/Pods-SpoonacularAmaris-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SpoonacularAmaris/Pods-SpoonacularAmaris-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SpoonacularAmaris/Pods-SpoonacularAmaris-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8391C62B31CEE04314E8CFAB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SpoonacularAmaris-SpoonacularAmarisUITests/Pods-SpoonacularAmaris-SpoonacularAmarisUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SpoonacularAmaris-SpoonacularAmarisUITests/Pods-SpoonacularAmaris-SpoonacularAmarisUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SpoonacularAmaris-SpoonacularAmarisUITests/Pods-SpoonacularAmaris-SpoonacularAmarisUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CBE23BDDDC2C7E208645914C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SpoonacularAmaris-SpoonacularAmarisUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D6B676E4EC1A25D2F5E6A8C5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SpoonacularAmaris-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EFBFA53CE6B2E59D03DBACE5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SpoonacularAmarisTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		56F24E222A425BFC00A20305 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56F24E6C2A42761400A20305 /* RecipeListViewController.swift in Sources */,
+				56F24E702A427CD000A20305 /* RecipeListTableViewCell.swift in Sources */,
+				56F24E2E2A425BFC00A20305 /* ViewController.swift in Sources */,
+				56F24E622A42615100A20305 /* ResultsDecodable.swift in Sources */,
+				56F24E2A2A425BFC00A20305 /* AppDelegate.swift in Sources */,
+				56F24E752A42887700A20305 /* RecipeViewController.swift in Sources */,
+				56F24E642A4261FE00A20305 /* RecipeDecodable.swift in Sources */,
+				56F24E5D2A425C4B00A20305 /* Foo.swift in Sources */,
+				56F24E342A425BFC00A20305 /* SpoonacularAmaris.xcdatamodeld in Sources */,
+				56F24E2C2A425BFC00A20305 /* SceneDelegate.swift in Sources */,
+				56F24E5F2A425C7F00A20305 /* APIClient.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56F24E3B2A425C0100A20305 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56F24E442A425C0100A20305 /* SpoonacularAmarisTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56F24E452A425C0100A20305 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56F24E4E2A425C0100A20305 /* SpoonacularAmarisUITests.swift in Sources */,
+				56F24E502A425C0100A20305 /* SpoonacularAmarisUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		56F24E412A425C0100A20305 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 56F24E252A425BFC00A20305 /* SpoonacularAmaris */;
+			targetProxy = 56F24E402A425C0100A20305 /* PBXContainerItemProxy */;
+		};
+		56F24E4B2A425C0100A20305 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 56F24E252A425BFC00A20305 /* SpoonacularAmaris */;
+			targetProxy = 56F24E4A2A425C0100A20305 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		56F24E2F2A425BFC00A20305 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				56F24E302A425BFC00A20305 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		56F24E372A425C0100A20305 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				56F24E382A425C0100A20305 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		56F24E512A425C0100A20305 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		56F24E522A425C0100A20305 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		56F24E542A425C0100A20305 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5474630E4861D81B216FC5AA /* Pods-SpoonacularAmaris.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F6KDBC2B2W;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SpoonacularAmaris/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.uzupis.SpoonacularAmaris;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		56F24E552A425C0100A20305 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2B90D55B4BC0481CF293BBAD /* Pods-SpoonacularAmaris.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F6KDBC2B2W;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SpoonacularAmaris/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.uzupis.SpoonacularAmaris;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		56F24E572A425C0100A20305 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E2F12DA7F4729F372F706D5F /* Pods-SpoonacularAmarisTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F6KDBC2B2W;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.uzupis.SpoonacularAmarisTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SpoonacularAmaris.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SpoonacularAmaris";
+			};
+			name = Debug;
+		};
+		56F24E582A425C0100A20305 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B0AE00077995FF212A387062 /* Pods-SpoonacularAmarisTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F6KDBC2B2W;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.uzupis.SpoonacularAmarisTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SpoonacularAmaris.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SpoonacularAmaris";
+			};
+			name = Release;
+		};
+		56F24E5A2A425C0100A20305 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0D88079E86425FB6B8EECF8E /* Pods-SpoonacularAmaris-SpoonacularAmarisUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F6KDBC2B2W;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.uzupis.SpoonacularAmarisUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SpoonacularAmaris;
+			};
+			name = Debug;
+		};
+		56F24E5B2A425C0100A20305 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5DD038E520D52A9AEEBECD27 /* Pods-SpoonacularAmaris-SpoonacularAmarisUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F6KDBC2B2W;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.uzupis.SpoonacularAmarisUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SpoonacularAmaris;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		56F24E212A425BFC00A20305 /* Build configuration list for PBXProject "SpoonacularAmaris" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				56F24E512A425C0100A20305 /* Debug */,
+				56F24E522A425C0100A20305 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		56F24E532A425C0100A20305 /* Build configuration list for PBXNativeTarget "SpoonacularAmaris" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				56F24E542A425C0100A20305 /* Debug */,
+				56F24E552A425C0100A20305 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		56F24E562A425C0100A20305 /* Build configuration list for PBXNativeTarget "SpoonacularAmarisTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				56F24E572A425C0100A20305 /* Debug */,
+				56F24E582A425C0100A20305 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		56F24E592A425C0100A20305 /* Build configuration list for PBXNativeTarget "SpoonacularAmarisUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				56F24E5A2A425C0100A20305 /* Debug */,
+				56F24E5B2A425C0100A20305 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		56F24E322A425BFC00A20305 /* SpoonacularAmaris.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				56F24E332A425BFC00A20305 /* SpoonacularAmaris.xcdatamodel */,
+			);
+			currentVersion = 56F24E332A425BFC00A20305 /* SpoonacularAmaris.xcdatamodel */;
+			path = SpoonacularAmaris.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 56F24E1E2A425BFC00A20305 /* Project object */;
+}

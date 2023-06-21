@@ -1,0 +1,6 @@
+framework module Pods_SpoonacularAmaris_SpoonacularAmarisUITests {
+  umbrella header "Pods-SpoonacularAmaris-SpoonacularAmarisUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
