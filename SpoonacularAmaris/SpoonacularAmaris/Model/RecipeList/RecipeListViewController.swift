@@ -6,6 +6,8 @@
 //
 
 import UIKit
+//import FirebaseCore
+import FirebaseFirestore
 
 class RecipeListViewController: UIViewController {
 
@@ -15,6 +17,8 @@ class RecipeListViewController: UIViewController {
     let identifier = "RecipeListTableViewCell"
     var result: ResultsDecodable!
     var filtered: [RecipeDecodable]!
+    
+    var docRef: DocumentReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +31,9 @@ class RecipeListViewController: UIViewController {
         self.autocomplete.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         
         self.request()
+        
+//        self.docRef = Firestore.firestore().collection("Recipes").document("Recipe")
+        let collection = Firestore.firestore().collection("Recipes")
     }
 
     private func request() {
@@ -39,6 +46,21 @@ class RecipeListViewController: UIViewController {
         self.result = resultsDecodable
         self.filtered = self.result.results!
         self.tableViewRecipeList.reloadData()
+        let dataToSave: [String: Any] = ["id":1,"title":"Crepe","image":"","imageType":""]
+//        docRef.setData(dataToSave, completion: <#T##((Error?) -> Void)?##((Error?) -> Void)?##(Error?) -> Void#>)
+//        docRef.setData(dataToSave) { (error) in
+//            if let error = error {
+//                debugPrint("KO")
+//            }
+//        }
+        let collection = Firestore.firestore().collection("restaurants")
+        let recipe = Recipe(
+          id: 1,
+          title: "Crepe",
+          image: "",
+          imageType: ""
+        )
+        collection.addDocument(data: recipe.dictionary)
     }
 
     @objc func textFieldDidChange(_ textField: UITextField) {

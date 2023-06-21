@@ -7,6 +7,19 @@
 
 import Foundation
 
+struct Recipe {
+    var id: Int?
+    var title: String?
+    var image: String?
+    var imageType: String?
+    var dictionary: [String: Any] {
+        return ["id": id,
+                "title": title,
+                "image": image,
+                "imageType": imageType]
+    }
+}
+
 class RecipeDecodable: Decodable{
     var id: Int?
     var title: String?
