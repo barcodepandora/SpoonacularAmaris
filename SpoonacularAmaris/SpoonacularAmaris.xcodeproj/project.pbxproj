@@ -28,6 +28,7 @@
 		56F24E712A427CD000A20305 /* RecipeListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56F24E6F2A427CD000A20305 /* RecipeListTableViewCell.xib */; };
 		56F24E752A42887700A20305 /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F24E732A42887700A20305 /* RecipeViewController.swift */; };
 		56F24E762A42887700A20305 /* RecipeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56F24E742A42887700A20305 /* RecipeViewController.xib */; };
+		56F24E782A4295AE00A20305 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 56F24E772A4295AD00A20305 /* GoogleService-Info.plist */; };
 		66E34DC9F6FF7694677CD1D2 /* Pods_SpoonacularAmarisTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCD1F49AD6AE58D2B5C075D /* Pods_SpoonacularAmarisTests.framework */; };
 		B83D5D18F49A5BCC3465DE62 /* Pods_SpoonacularAmaris.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DC122DC069998307EFA3222 /* Pods_SpoonacularAmaris.framework */; };
 /* End PBXBuildFile section */
@@ -78,6 +79,7 @@
 		56F24E6F2A427CD000A20305 /* RecipeListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeListTableViewCell.xib; sourceTree = "<group>"; };
 		56F24E732A42887700A20305 /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
 		56F24E742A42887700A20305 /* RecipeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeViewController.xib; sourceTree = "<group>"; };
+		56F24E772A4295AD00A20305 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5DD038E520D52A9AEEBECD27 /* Pods-SpoonacularAmaris-SpoonacularAmarisUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpoonacularAmaris-SpoonacularAmarisUITests.release.xcconfig"; path = "Target Support Files/Pods-SpoonacularAmaris-SpoonacularAmarisUITests/Pods-SpoonacularAmaris-SpoonacularAmarisUITests.release.xcconfig"; sourceTree = "<group>"; };
 		7DC122DC069998307EFA3222 /* Pods_SpoonacularAmaris.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpoonacularAmaris.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BCD1F49AD6AE58D2B5C075D /* Pods_SpoonacularAmarisTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpoonacularAmarisTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -148,6 +150,7 @@
 				56F24E352A425C0100A20305 /* Assets.xcassets */,
 				56F24E372A425C0100A20305 /* LaunchScreen.storyboard */,
 				56F24E3A2A425C0100A20305 /* Info.plist */,
+				56F24E772A4295AD00A20305 /* GoogleService-Info.plist */,
 				56F24E322A425BFC00A20305 /* SpoonacularAmaris.xcdatamodeld */,
 			);
 			path = SpoonacularAmaris;
@@ -339,6 +342,7 @@
 				56F24E362A425C0100A20305 /* Assets.xcassets in Resources */,
 				56F24E762A42887700A20305 /* RecipeViewController.xib in Resources */,
 				56F24E312A425BFC00A20305 /* Main.storyboard in Resources */,
+				56F24E782A4295AE00A20305 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -662,6 +666,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -691,6 +696,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

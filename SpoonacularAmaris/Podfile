@@ -7,7 +7,8 @@ target 'SpoonacularAmaris' do
 
   # Pods for SpoonacularAmaris
   pod 'Alamofire'
-
+  pod 'FirebaseFirestore'
+  
   target 'SpoonacularAmarisTests' do
     inherit! :search_paths
     # Pods for testing
