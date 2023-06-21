@@ -11,6 +11,7 @@
 		56CB25042A43261300E09B6F /* RecipeListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CB25032A43261300E09B6F /* RecipeListTests.swift */; };
 		56CB25082A437CE300E09B6F /* RecipeListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CB25072A437CE300E09B6F /* RecipeListInteractor.swift */; };
 		56CB250A2A437DB600E09B6F /* RecipeListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CB25092A437DB600E09B6F /* RecipeListPresenter.swift */; };
+		56CB250F2A4394CC00E09B6F /* SpinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CB250E2A4394CC00E09B6F /* SpinnerViewController.swift */; };
 		56F24E2A2A425BFC00A20305 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F24E292A425BFC00A20305 /* AppDelegate.swift */; };
 		56F24E2C2A425BFC00A20305 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F24E2B2A425BFC00A20305 /* SceneDelegate.swift */; };
 		56F24E2E2A425BFC00A20305 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F24E2D2A425BFC00A20305 /* ViewController.swift */; };
@@ -60,6 +61,7 @@
 		56CB25032A43261300E09B6F /* RecipeListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListTests.swift; sourceTree = "<group>"; };
 		56CB25072A437CE300E09B6F /* RecipeListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListInteractor.swift; sourceTree = "<group>"; };
 		56CB25092A437DB600E09B6F /* RecipeListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListPresenter.swift; sourceTree = "<group>"; };
+		56CB250E2A4394CC00E09B6F /* SpinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerViewController.swift; sourceTree = "<group>"; };
 		56F24E262A425BFC00A20305 /* SpoonacularAmaris.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpoonacularAmaris.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56F24E292A425BFC00A20305 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		56F24E2B2A425BFC00A20305 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -128,6 +130,22 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
+		56CB250C2A4390B500E09B6F /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				56F24E5E2A425C7F00A20305 /* APIClient.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		56CB250D2A4394AD00E09B6F /* Butler */ = {
+			isa = PBXGroup;
+			children = (
+				56CB250E2A4394CC00E09B6F /* SpinnerViewController.swift */,
+			);
+			path = Butler;
+			sourceTree = "<group>";
+		};
 		56F24E1D2A425BFC00A20305 = {
 			isa = PBXGroup;
 			children = (
@@ -157,7 +175,6 @@
 				56F24E292A425BFC00A20305 /* AppDelegate.swift */,
 				56F24E2B2A425BFC00A20305 /* SceneDelegate.swift */,
 				56F24E2D2A425BFC00A20305 /* ViewController.swift */,
-				56F24E5E2A425C7F00A20305 /* APIClient.swift */,
 				56F24E2F2A425BFC00A20305 /* Main.storyboard */,
 				56F24E352A425C0100A20305 /* Assets.xcassets */,
 				56F24E372A425C0100A20305 /* LaunchScreen.storyboard */,
@@ -189,6 +206,8 @@
 		56F24E602A4260BE00A20305 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				56CB250D2A4394AD00E09B6F /* Butler */,
+				56CB250C2A4390B500E09B6F /* Networking */,
 				56CB250B2A437E8F00E09B6F /* Entity */,
 				56F24E722A42885400A20305 /* Recipe */,
 				56F24E652A4275A000A20305 /* RecipeList */,
@@ -487,6 +506,7 @@
 				56F24E6C2A42761400A20305 /* RecipeListViewController.swift in Sources */,
 				56CB250A2A437DB600E09B6F /* RecipeListPresenter.swift in Sources */,
 				56F24E702A427CD000A20305 /* RecipeListTableViewCell.swift in Sources */,
+				56CB250F2A4394CC00E09B6F /* SpinnerViewController.swift in Sources */,
 				56F24E2E2A425BFC00A20305 /* ViewController.swift in Sources */,
 				56F24E622A42615100A20305 /* ResultsDecodable.swift in Sources */,
 				56CB25082A437CE300E09B6F /* RecipeListInteractor.swift in Sources */,

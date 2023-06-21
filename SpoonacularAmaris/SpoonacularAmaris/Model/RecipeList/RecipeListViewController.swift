@@ -10,6 +10,7 @@ import FirebaseFirestore
 
 class RecipeListViewController: UIViewController {
 
+    // MARK: Character
     @IBOutlet weak var tableViewRecipeList: UITableView!
     @IBOutlet weak var autocomplete: UITextField!
     
@@ -19,8 +20,12 @@ class RecipeListViewController: UIViewController {
     var modelListFiltered: [Recipe.ViewModel]!
     var filtered: [RecipeDecodable]!
     var features: RecipeListFeaturesProtocol?
+    var presenter: RecipeListPresenter!
+    var interactor: RecipeListInteractor!
+    var spinner = SpinnerViewController()
     var docRef: DocumentReference! // Firestore
     
+    // MARK: Init
     convenience init(features: RecipeListFeaturesProtocol) {
         self.init()
         self.features = features
@@ -32,21 +37,18 @@ class RecipeListViewController: UIViewController {
         self.features = features
     }
     
-//    convenience init(result: ResultsDecodable, features: RecipeListFeaturesProtocol) {
-//        self.init()
-//        self.result = result
-//        self.features = features
-//    }
-    
+    // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.prepareTable()
         self.prepareAutocomplete()
         self.prepareOverall()
+        self.presenter = RecipeListPresenter(vc: self)
+        self.interactor = RecipeListInteractor(presenter: presenter)
         self.request()
     }
-
+    
     private func prepareTable() {
         self.tableViewRecipeList.delegate = self
         self.tableViewRecipeList.dataSource = self
@@ -61,41 +63,44 @@ class RecipeListViewController: UIViewController {
         self.features?.presentFeatures(delegate: self)
     }
     
-    @objc func hola(sender : UIButton) {
-        print("HOLA")
-    }
-
     private func request() {
         if let model = self.modelList, !model.isEmpty {
             self.modelListFiltered = self.modelList
             self.tableViewRecipeList.reloadData()
         } else {
-            let presenter = RecipeListPresenter(vc: self)
-            let interactor = RecipeListInteractor(presenter: presenter)
-            interactor.request()
+            self.createSpinnerView()
+            self.interactor.request()
         }
     }
     
-    // TODO REMOVE
-    func presentRecipeList(resultsDecodable: ResultsDecodable) {
-        debugPrint(resultsDecodable)
-        self.result = resultsDecodable
-        self.filtered = self.result.results!
-        self.tableViewRecipeList.reloadData()
-    }
-
     func presentRecipeList(modelList: [Recipe.ViewModel]) {
+        self.removeSpinner()
         self.modelList = modelList
         self.modelListFiltered = self.modelList
         self.tableViewRecipeList.reloadData()
     }
 
     func presentError(error: Error) {
+        self.removeSpinner()
         let alert = UIAlertController(title: "Error", message: "No se pueden consultar recetas. Intentar mas tarde", preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
     
+    // MARK: UI
+    func createSpinnerView() {
+        addChild(self.spinner)
+        self.spinner.view.frame = view.frame
+        view.addSubview(self.spinner.view)
+        self.spinner.didMove(toParent: self)
+    }
+    
+    func removeSpinner() {
+        self.spinner.willMove(toParent: nil)
+        self.spinner.view.removeFromSuperview()
+        self.spinner.removeFromParent()
+    }
+
     @objc func textFieldDidChange(_ textField: UITextField) {
         self.modelListFiltered = self.modelList
         if textField.text!.count > 0 {
@@ -162,7 +167,9 @@ class RecipeListFeaturesFavorites: RecipeListFeaturesProtocol {
     }
     
     @objc func buttonTapped(sender: UIButton) {
+        self.delegate?.createSpinnerView()
         Firestore.firestore().collection("Recipes").getDocuments() { (querySnapshot, err) in
+            self.delegate?.removeSpinner()
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
@@ -181,4 +188,3 @@ class RecipeListFeaturesFavorites: RecipeListFeaturesProtocol {
         }
     }
 }
-
