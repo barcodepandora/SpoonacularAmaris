@@ -16,6 +16,8 @@
 		565CDAA12A43E9D000118256 /* AddRecipeToFavoritesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565CDAA02A43E9D000118256 /* AddRecipeToFavoritesUseCase.swift */; };
 		565CDAA32A43F1EC00118256 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565CDAA22A43F1EC00118256 /* Recipe.swift */; };
 		56AFC3E82A44858200848FE9 /* UIImageView+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AFC3E72A44858200848FE9 /* UIImageView+URL.swift */; };
+		56AFC3ED2A44D68C00848FE9 /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AFC3EC2A44D68C00848FE9 /* APIRouter.swift */; };
+		56AFC3EF2A44DC5400848FE9 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AFC3EE2A44DC5400848FE9 /* APIConstants.swift */; };
 		56CB25042A43261300E09B6F /* RecipeListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CB25032A43261300E09B6F /* RecipeListTests.swift */; };
 		56CB25082A437CE300E09B6F /* RecipeListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CB25072A437CE300E09B6F /* RecipeListInteractor.swift */; };
 		56CB250A2A437DB600E09B6F /* RecipeListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CB25092A437DB600E09B6F /* RecipeListPresenter.swift */; };
@@ -74,6 +76,8 @@
 		565CDAA02A43E9D000118256 /* AddRecipeToFavoritesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeToFavoritesUseCase.swift; sourceTree = "<group>"; };
 		565CDAA22A43F1EC00118256 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		56AFC3E72A44858200848FE9 /* UIImageView+URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+URL.swift"; sourceTree = "<group>"; };
+		56AFC3EC2A44D68C00848FE9 /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
+		56AFC3EE2A44DC5400848FE9 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		56CB25032A43261300E09B6F /* RecipeListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListTests.swift; sourceTree = "<group>"; };
 		56CB25072A437CE300E09B6F /* RecipeListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListInteractor.swift; sourceTree = "<group>"; };
 		56CB25092A437DB600E09B6F /* RecipeListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListPresenter.swift; sourceTree = "<group>"; };
@@ -170,6 +174,8 @@
 			isa = PBXGroup;
 			children = (
 				56F24E5E2A425C7F00A20305 /* APIClient.swift */,
+				56AFC3EC2A44D68C00848FE9 /* APIRouter.swift */,
+				56AFC3EE2A44DC5400848FE9 /* APIConstants.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -543,10 +549,12 @@
 				56CB250F2A4394CC00E09B6F /* SpinnerViewController.swift in Sources */,
 				56F24E2E2A425BFC00A20305 /* ViewController.swift in Sources */,
 				56F24E622A42615100A20305 /* ResultsDecodable.swift in Sources */,
+				56AFC3ED2A44D68C00848FE9 /* APIRouter.swift in Sources */,
 				56CB25082A437CE300E09B6F /* RecipeListInteractor.swift in Sources */,
 				56F24E2A2A425BFC00A20305 /* AppDelegate.swift in Sources */,
 				56F24E752A42887700A20305 /* RecipeViewController.swift in Sources */,
 				56AFC3E82A44858200848FE9 /* UIImageView+URL.swift in Sources */,
+				56AFC3EF2A44DC5400848FE9 /* APIConstants.swift in Sources */,
 				56F24E642A4261FE00A20305 /* RecipeDecodable.swift in Sources */,
 				565CDA9F2A43E8AE00118256 /* RecipeInteractor.swift in Sources */,
 				565CDAA12A43E9D000118256 /* AddRecipeToFavoritesUseCase.swift in Sources */,
@@ -738,7 +746,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SpoonacularAmaris/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -768,7 +776,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SpoonacularAmaris/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

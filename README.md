@@ -117,3 +117,27 @@ func setImageWithURL(_ url: URL) {
 	task.resume()
 }
 ```  
+# TODO
+
+## Diseño por interfaces
+Diseñar y construir las piezas de acuerdo a arquitectura VIPER mediante protocolor
+
+## Splash Delay
+Hallar la forma de demorar el mostrar contenido después del splash.
+
+Este código demora la ejecución de la app el tiempo requerido; sin embargo implica demorar la ejecución de más piezas, opción que no da un performance de calidad a la app
+
+```
+Thread.sleep(forTimeInterval: 3.0)
+```
+Este código demora la pieza SceneDelegate; sin embargo funciona en versiones anteriores a iOS 13. En adelante muestra una app oscura durante la demora.
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [self] in
+            // your code here
+            guard let aScene = (scene as? UIWindowScene) else { return }
+            window = UIWindow(windowScene: aScene)
+            let navigator = UINavigationController(rootViewController: RecipeListViewController(features: RecipeListFeaturesRequestListAndFavorites()))
+            window?.rootViewController = navigator
+            window?.makeKeyAndVisible()
+        }
+```

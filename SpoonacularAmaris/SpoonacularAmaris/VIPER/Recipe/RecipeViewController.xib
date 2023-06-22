@@ -22,10 +22,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2E8-rW-HKV">
-                    <rect key="frame" x="105" y="537" width="168" height="35"/>
+                    <rect key="frame" x="117" y="537" width="144" height="35"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" title="Agregar a favoritos"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Add to favorites"/>
                     <connections>
                         <action selector="actionAddToFavorites:" destination="-1" eventType="touchUpInside" id="doS-Vh-d4L"/>
                     </connections>

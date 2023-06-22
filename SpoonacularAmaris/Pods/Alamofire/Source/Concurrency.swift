@@ -63,8 +63,8 @@ extension Request {
     /// - Returns:                   The `StreamOf<URLRequest>`.
     public func urlRequests(bufferingPolicy: StreamOf<URLRequest>.BufferingPolicy = .unbounded) -> StreamOf<URLRequest> {
         stream(bufferingPolicy: bufferingPolicy) { [unowned self] continuation in
-            onURLRequestCreation(on: .singleEventQueue) { requestRecipeList in
-                continuation.yield(requestRecipeList)
+            onURLRequestCreation(on: .singleEventQueue) { requestRecipeListMock in
+                continuation.yield(requestRecipeListMock)
             }
         }
     }
@@ -140,12 +140,12 @@ public struct DataTask<Value> {
         }
     }
 
-    private let requestRecipeList: DataRequest
+    private let requestRecipeListMock: DataRequest
     private let task: Task<DataResponse<Value, AFError>, Never>
     private let shouldAutomaticallyCancel: Bool
 
-    fileprivate init(requestRecipeList: DataRequest, task: Task<DataResponse<Value, AFError>, Never>, shouldAutomaticallyCancel: Bool) {
-        self.requestRecipeList = requestRecipeList
+    fileprivate init(requestRecipeListMock: DataRequest, task: Task<DataResponse<Value, AFError>, Never>, shouldAutomaticallyCancel: Bool) {
+        self.requestRecipeListMock = requestRecipeListMock
         self.task = task
         self.shouldAutomaticallyCancel = shouldAutomaticallyCancel
     }
@@ -157,12 +157,12 @@ public struct DataTask<Value> {
 
     /// Resume the underlying `DataRequest`.
     public func resume() {
-        requestRecipeList.resume()
+        requestRecipeListMock.resume()
     }
 
     /// Suspend the underlying `DataRequest`.
     public func suspend() {
-        requestRecipeList.suspend()
+        requestRecipeListMock.suspend()
     }
 }
 
@@ -297,7 +297,7 @@ extension DataRequest {
             }
         }
 
-        return DataTask<Value>(requestRecipeList: self, task: task, shouldAutomaticallyCancel: shouldAutomaticallyCancel)
+        return DataTask<Value>(requestRecipeListMock: self, task: task, shouldAutomaticallyCancel: shouldAutomaticallyCancel)
     }
 }
 
@@ -334,11 +334,11 @@ public struct DownloadTask<Value> {
     }
 
     private let task: Task<AFDownloadResponse<Value>, Never>
-    private let requestRecipeList: DownloadRequest
+    private let requestRecipeListMock: DownloadRequest
     private let shouldAutomaticallyCancel: Bool
 
-    fileprivate init(requestRecipeList: DownloadRequest, task: Task<AFDownloadResponse<Value>, Never>, shouldAutomaticallyCancel: Bool) {
-        self.requestRecipeList = requestRecipeList
+    fileprivate init(requestRecipeListMock: DownloadRequest, task: Task<AFDownloadResponse<Value>, Never>, shouldAutomaticallyCancel: Bool) {
+        self.requestRecipeListMock = requestRecipeListMock
         self.task = task
         self.shouldAutomaticallyCancel = shouldAutomaticallyCancel
     }
@@ -350,12 +350,12 @@ public struct DownloadTask<Value> {
 
     /// Resume the underlying `DownloadRequest`.
     public func resume() {
-        requestRecipeList.resume()
+        requestRecipeListMock.resume()
     }
 
     /// Suspend the underlying `DownloadRequest`.
     public func suspend() {
-        requestRecipeList.suspend()
+        requestRecipeListMock.suspend()
     }
 }
 
@@ -506,7 +506,7 @@ extension DownloadRequest {
             }
         }
 
-        return DownloadTask<Value>(requestRecipeList: self, task: task, shouldAutomaticallyCancel: shouldAutomaticallyCancel)
+        return DownloadTask<Value>(requestRecipeListMock: self, task: task, shouldAutomaticallyCancel: shouldAutomaticallyCancel)
     }
 }
 
@@ -517,10 +517,10 @@ public struct DataStreamTask {
     // Type of created streams.
     public typealias Stream<Success, Failure: Error> = StreamOf<DataStreamRequest.Stream<Success, Failure>>
 
-    private let requestRecipeList: DataStreamRequest
+    private let requestRecipeListMock: DataStreamRequest
 
-    fileprivate init(requestRecipeList: DataStreamRequest) {
-        self.requestRecipeList = requestRecipeList
+    fileprivate init(requestRecipeListMock: DataStreamRequest) {
+        self.requestRecipeListMock = requestRecipeListMock
     }
 
     /// Creates a `Stream` of `Data` values from the underlying `DataStreamRequest`.
@@ -533,7 +533,7 @@ public struct DataStreamTask {
     /// - Returns:                   The `Stream`.
     public func streamingData(automaticallyCancelling shouldAutomaticallyCancel: Bool = true, bufferingPolicy: Stream<Data, Never>.BufferingPolicy = .unbounded) -> Stream<Data, Never> {
         createStream(automaticallyCancelling: shouldAutomaticallyCancel, bufferingPolicy: bufferingPolicy) { onStream in
-            requestRecipeList.responseStream(on: .streamCompletionQueue(forRequestID: requestRecipeList.id), stream: onStream)
+            requestRecipeListMock.responseStream(on: .streamCompletionQueue(forRequestID: requestRecipeListMock.id), stream: onStream)
         }
     }
 
@@ -546,7 +546,7 @@ public struct DataStreamTask {
     /// - Returns:
     public func streamingStrings(automaticallyCancelling shouldAutomaticallyCancel: Bool = true, bufferingPolicy: Stream<String, Never>.BufferingPolicy = .unbounded) -> Stream<String, Never> {
         createStream(automaticallyCancelling: shouldAutomaticallyCancel, bufferingPolicy: bufferingPolicy) { onStream in
-            requestRecipeList.responseStreamString(on: .streamCompletionQueue(forRequestID: requestRecipeList.id), stream: onStream)
+            requestRecipeListMock.responseStreamString(on: .streamCompletionQueue(forRequestID: requestRecipeListMock.id), stream: onStream)
         }
     }
 
@@ -582,8 +582,8 @@ public struct DataStreamTask {
                                                                      bufferingPolicy: Stream<Serializer.SerializedObject, AFError>.BufferingPolicy = .unbounded)
         -> Stream<Serializer.SerializedObject, AFError> {
         createStream(automaticallyCancelling: shouldAutomaticallyCancel, bufferingPolicy: bufferingPolicy) { onStream in
-            requestRecipeList.responseStream(using: serializer,
-                                   on: .streamCompletionQueue(forRequestID: requestRecipeList.id),
+            requestRecipeListMock.responseStream(using: serializer,
+                                   on: .streamCompletionQueue(forRequestID: requestRecipeListMock.id),
                                    stream: onStream)
         }
     }
@@ -594,7 +594,7 @@ public struct DataStreamTask {
         -> Stream<Success, Failure> {
         StreamOf(bufferingPolicy: bufferingPolicy) {
             guard shouldAutomaticallyCancel,
-                  requestRecipeList.isInitialized || requestRecipeList.isResumed || requestRecipeList.isSuspended else { return }
+                  requestRecipeListMock.isInitialized || requestRecipeListMock.isResumed || requestRecipeListMock.isSuspended else { return }
 
             cancel()
         } builder: { continuation in
@@ -609,17 +609,17 @@ public struct DataStreamTask {
 
     /// Cancel the underlying `DataStreamRequest`.
     public func cancel() {
-        requestRecipeList.cancel()
+        requestRecipeListMock.cancel()
     }
 
     /// Resume the underlying `DataStreamRequest`.
     public func resume() {
-        requestRecipeList.resume()
+        requestRecipeListMock.resume()
     }
 
     /// Suspend the underlying `DataStreamRequest`.
     public func suspend() {
-        requestRecipeList.suspend()
+        requestRecipeListMock.suspend()
     }
 }
 
@@ -629,7 +629,7 @@ extension DataStreamRequest {
     ///
     /// - Returns: The `DataStreamTask`.
     public func streamTask() -> DataStreamTask {
-        DataStreamTask(requestRecipeList: self)
+        DataStreamTask(requestRecipeListMock: self)
     }
 }
 

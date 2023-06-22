@@ -17,11 +17,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         
+        Thread.sleep(forTimeInterval: 2.5)
         guard let aScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: aScene)
-        let nvc = UINavigationController(rootViewController: RecipeListViewController(features: RecipeListFeaturesRequestListAndFavorites()))
-        window?.rootViewController = nvc
+        let navigator = UINavigationController(rootViewController: RecipeListViewController(features: RecipeListFeaturesRequestListAndFavorites()))
+        window?.rootViewController = navigator
         window?.makeKeyAndVisible()
+
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [self] in
+//            // your code here
+//            guard let aScene = (scene as? UIWindowScene) else { return }
+//            window = UIWindow(windowScene: aScene)
+//            let navigator = UINavigationController(rootViewController: RecipeListViewController(features: RecipeListFeaturesRequestListAndFavorites()))
+//            window?.rootViewController = navigator
+//            window?.makeKeyAndVisible()
+//        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

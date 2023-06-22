@@ -31,20 +31,20 @@ final class TestRecipeList: XCTestCase {
     }
     
     func testResponseNotNil() {
-        APIClient.requestRecipeList( completion: { (response, error) in
+        APIClient.requestRecipeListMock( completion: { (response, error) in
             XCTAssertNotNil(response)
         })
     }
 
     func testDataNotNil() {
-        APIClient.requestRecipeList( completion: { (response, error) in
+        APIClient.requestRecipeListMock( completion: { (response, error) in
             let results = response?.results
             XCTAssertNotNil(results)
         })
     }
     
     func testDataNotEmpty() {
-        APIClient.requestRecipeList( completion: { (response, error) in
+        APIClient.requestRecipeListMock( completion: { (response, error) in
             let results = response?.results
             XCTAssertTrue(!(results!.isEmpty))
         })

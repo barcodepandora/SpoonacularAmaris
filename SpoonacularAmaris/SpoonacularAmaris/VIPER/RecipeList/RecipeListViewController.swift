@@ -176,8 +176,8 @@ class RecipeListFeaturesRequestListAndFavorites: RecipeListFeaturesProtocol {
         self.btnFavorites.setImage(UIImage(named: "heart"), for: .normal)
         self.btnFavorites.backgroundColor = .white
         self.btnFavorites.addTarget(self, action: #selector(self.buttonTapped), for: .touchUpInside)
-        self.lblFavorites = UILabel(frame: CGRect(x: 90, y: 715, width: 198, height: 28))
-        self.lblFavorites.text = "Contando favoritos..."
+        self.lblFavorites = UILabel(frame: CGRect(x: 95, y: 712, width: 198, height: 28))
+        self.lblFavorites.text = "Please wait..."
         self.delegate!.view.addSubview(self.btnFavorites)
         self.delegate!.view.addSubview(self.lblFavorites)
         

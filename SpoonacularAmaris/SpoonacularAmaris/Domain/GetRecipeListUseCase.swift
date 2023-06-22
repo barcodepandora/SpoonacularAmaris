@@ -9,7 +9,7 @@ import Foundation
 
 class GetRecipeListUseCase {
     func fetchRecipeList(completion: @escaping ([Recipe.Response]?, Error?) -> Void) {
-        APIClient.requestRecipeList( completion: { (response, error) in
+        APIClient.requestRecipeList(completion: { (response, error) in
             if let response = response {
                 completion(self.fromDecodableToResponse(response: response), nil)
             } else if let error = error {
