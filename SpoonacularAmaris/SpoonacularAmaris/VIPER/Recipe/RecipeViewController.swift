@@ -25,7 +25,7 @@ class RecipeViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         self.labelTitle.text = recipe.title
-        self.imageRecipe.load(url: URL(string: recipe.image)!)
+        self.imageRecipe.setImageWithURL(URL(string: recipe.image)!)
     }
 
     @IBAction func actionAddToFavorites(_ sender: Any) {

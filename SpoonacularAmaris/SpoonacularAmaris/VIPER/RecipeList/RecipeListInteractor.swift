@@ -44,4 +44,14 @@ class RecipeListInteractor {
             }
         })
     }
+    
+    func requestFavoritesCount() {
+        GetRecipeListFavoritesUseCase().fetchRecipeList( completion: { (response, error) in
+            if let response = response {
+                self.presenter!.presentFavoritesCount(modelList: self.fromResponseToViewModel(response: response))
+            } else if let error = error {
+                self.presenter!.presentError(error: error)
+            }
+        })
+    }
 }

@@ -22,6 +22,10 @@ class RecipeListPresenter {
         self.vc!.presentRecipeListFavorites(modelList: modelList)
     }
     
+    func presentFavoritesCount(modelList: [Recipe.ViewModel]) {
+        self.vc!.presentFavoritesCount(modelList: modelList)
+    }
+
     func presentError(error: Error) {
         self.vc!.presentError(error: error)
     }

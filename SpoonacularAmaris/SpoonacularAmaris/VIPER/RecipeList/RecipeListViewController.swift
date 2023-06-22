@@ -22,7 +22,6 @@ class RecipeListViewController: UIViewController {
     var presenter: RecipeListPresenter!
     var interactor: RecipeListInteractor!
     var spinner = SpinnerViewController()
-
     
     // MARK: Init
     convenience init(features: RecipeListFeaturesProtocol) {
@@ -40,11 +39,11 @@ class RecipeListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        self.presenter = RecipeListPresenter(vc: self)
+        self.interactor = RecipeListInteractor(presenter: presenter)
         self.prepareTable()
         self.prepareAutocomplete()
         self.prepareOverall()
-        self.presenter = RecipeListPresenter(vc: self)
-        self.interactor = RecipeListInteractor(presenter: presenter)
         self.request()
     }
     
@@ -84,6 +83,10 @@ class RecipeListViewController: UIViewController {
     func presentRecipeListFavorites(modelList: [Recipe.ViewModel]) {
         self.removeSpinner()
         let router = RecipeListRouter().routeToFavorites(from: self, to: RecipeListViewController(modelList: modelList, features: RecipeListFeaturesRequestNone()))
+    }
+    
+    func presentFavoritesCount(modelList: [Recipe.ViewModel]) {
+        self.features?.performAfterPresent(modelList: modelList)
     }
     
     func presentError(error: Error) {
@@ -138,7 +141,7 @@ extension RecipeListViewController: UITableViewDataSource {
 
         let cell = tableViewRecipeList.dequeueReusableCell(withIdentifier: self.identifier, for: indexPath) as! RecipeListTableViewCell
         cell.labelName.text = recipe.title
-        cell.imageRecipe.load(url: URL(string: recipe.image)!)
+        cell.imageRecipe.setImageWithURL(URL(string: recipe.image)!)
         return cell
 
     }
@@ -148,6 +151,7 @@ extension RecipeListViewController: UITableViewDataSource {
 protocol RecipeListFeaturesProtocol {
     func presentFeatures(delegate: RecipeListViewController)
     func haveToRequest() -> Bool
+    func performAfterPresent(modelList: [Recipe.ViewModel])
 }
 
 class RecipeListFeaturesRequestNone: RecipeListFeaturesProtocol {
@@ -156,28 +160,37 @@ class RecipeListFeaturesRequestNone: RecipeListFeaturesProtocol {
     func haveToRequest() -> Bool {
         return false
     }
+    
+    func performAfterPresent(modelList: [Recipe.ViewModel]) {}
 }
 
 class RecipeListFeaturesRequestListAndFavorites: RecipeListFeaturesProtocol {
     var delegate: RecipeListViewController?
+    var btnFavorites: UIButton!
+    var lblFavorites: UILabel!
     
     func presentFeatures(delegate: RecipeListViewController) {
+        // Prepare UI
         self.delegate = delegate
-        var image = UIImage(named: "heart")
-        image = image?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
-        let btnFavorites = UIButton(frame: CGRect(x: 20, y: 660, width: 42, height: 56))
-        btnFavorites.setImage(image, for: .normal)
-        btnFavorites.invalidateIntrinsicContentSize()
-        btnFavorites.sizeToFit()
-        btnFavorites.titleEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
-        btnFavorites.invalidateIntrinsicContentSize()
-        btnFavorites.sizeToFit()
-        btnFavorites.addTarget(self, action: #selector(self.buttonTapped), for: .touchUpInside)
-        self.delegate!.view.addSubview(btnFavorites)
+        self.btnFavorites = UIButton(frame: CGRect(x: 28, y: 698, width: 60, height: 60))
+        self.btnFavorites.setImage(UIImage(named: "heart"), for: .normal)
+        self.btnFavorites.backgroundColor = .white
+        self.btnFavorites.addTarget(self, action: #selector(self.buttonTapped), for: .touchUpInside)
+        self.lblFavorites = UILabel(frame: CGRect(x: 90, y: 715, width: 198, height: 28))
+        self.lblFavorites.text = "Contando favoritos..."
+        self.delegate!.view.addSubview(self.btnFavorites)
+        self.delegate!.view.addSubview(self.lblFavorites)
+        
+        // Request number of favorites
+        self.delegate?.interactor.requestFavoritesCount()
     }
     
     func haveToRequest() -> Bool {
         return true
+    }
+    
+    func performAfterPresent(modelList: [Recipe.ViewModel]) {
+        self.lblFavorites.text = String(describing: modelList.count)
     }
     
     @objc func buttonTapped(sender: UIButton) {
