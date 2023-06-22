@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let aScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: aScene)
-        let nvc = UINavigationController(rootViewController: RecipeListViewController(features: RecipeListFeaturesFavorites()))
+        let nvc = UINavigationController(rootViewController: RecipeListViewController(features: RecipeListFeaturesRequestListAndFavorites()))
         window?.rootViewController = nvc
         window?.makeKeyAndVisible()
     }

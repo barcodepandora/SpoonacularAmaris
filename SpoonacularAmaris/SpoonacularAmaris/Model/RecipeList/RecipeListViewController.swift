@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import FirebaseFirestore
 
 class RecipeListViewController: UIViewController {
 
@@ -23,7 +22,7 @@ class RecipeListViewController: UIViewController {
     var presenter: RecipeListPresenter!
     var interactor: RecipeListInteractor!
     var spinner = SpinnerViewController()
-    var docRef: DocumentReference! // Firestore
+
     
     // MARK: Init
     convenience init(features: RecipeListFeaturesProtocol) {
@@ -63,16 +62,18 @@ class RecipeListViewController: UIViewController {
         self.features?.presentFeatures(delegate: self)
     }
     
+    // MARK: Request recipe list
     private func request() {
         if let model = self.modelList, !model.isEmpty {
             self.modelListFiltered = self.modelList
             self.tableViewRecipeList.reloadData()
-        } else {
+        } else if self.features!.haveToRequest() {
             self.createSpinnerView()
-            self.interactor.request()
+            self.interactor.requestRecipeList()
         }
     }
     
+    // MARK: Present recipe list
     func presentRecipeList(modelList: [Recipe.ViewModel]) {
         self.removeSpinner()
         self.modelList = modelList
@@ -80,6 +81,11 @@ class RecipeListViewController: UIViewController {
         self.tableViewRecipeList.reloadData()
     }
 
+    func presentRecipeListFavorites(modelList: [Recipe.ViewModel]) {
+        self.removeSpinner()
+        let router = RecipeListRouter().routeToFavorites(from: self, to: RecipeListViewController(modelList: modelList, features: RecipeListFeaturesRequestNone()))
+    }
+    
     func presentError(error: Error) {
         self.removeSpinner()
         let alert = UIAlertController(title: "Error", message: "No se pueden consultar recetas. Intentar mas tarde", preferredStyle: UIAlertController.Style.alert)
@@ -108,23 +114,12 @@ class RecipeListViewController: UIViewController {
         }
         self.tableViewRecipeList.reloadData()
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
+// MARK: UITableView
 extension RecipeListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var recipeVC = RecipeViewController(recipe: self.modelListFiltered[indexPath.row])
-        self.navigationController?.pushViewController(recipeVC, animated: true)
+        let router = RecipeListRouter().routeToRecipe(from: self, to: RecipeViewController(recipe: self.modelListFiltered[indexPath.row]))
     }
 }
 
@@ -134,56 +129,73 @@ extension RecipeListViewController: UITableViewDataSource {
         return res.count
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 154
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let recipe = self.modelListFiltered[indexPath.row]
 
         let cell = tableViewRecipeList.dequeueReusableCell(withIdentifier: self.identifier, for: indexPath) as! RecipeListTableViewCell
         cell.labelName.text = recipe.title
+        cell.imageRecipe.load(url: URL(string: recipe.image)!)
         return cell
 
     }
 }
 
+// MARK: Features for View Controller
 protocol RecipeListFeaturesProtocol {
     func presentFeatures(delegate: RecipeListViewController)
+    func haveToRequest() -> Bool
 }
 
-class RecipeListFeaturesEmpty: RecipeListFeaturesProtocol {
-    func presentFeatures(delegate: RecipeListViewController) {
+class RecipeListFeaturesRequestNone: RecipeListFeaturesProtocol {
+    func presentFeatures(delegate: RecipeListViewController) {}
+    
+    func haveToRequest() -> Bool {
+        return false
     }
 }
 
-class RecipeListFeaturesFavorites: RecipeListFeaturesProtocol {
+class RecipeListFeaturesRequestListAndFavorites: RecipeListFeaturesProtocol {
     var delegate: RecipeListViewController?
     
     func presentFeatures(delegate: RecipeListViewController) {
         self.delegate = delegate
-        let button = UIButton(frame: CGRect(x: 20, y: 765, width: 200, height: 60))
-        button.setTitle("Favorites", for: .normal)
-        button.backgroundColor = .white
-        button.setTitleColor(UIColor.black, for: .normal)
-        button.addTarget(self, action: #selector(self.buttonTapped), for: .touchUpInside)
-        self.delegate!.view.addSubview(button)
+        var image = UIImage(named: "heart")
+        image = image?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
+        let btnFavorites = UIButton(frame: CGRect(x: 20, y: 660, width: 42, height: 56))
+        btnFavorites.setImage(image, for: .normal)
+        btnFavorites.invalidateIntrinsicContentSize()
+        btnFavorites.sizeToFit()
+        btnFavorites.titleEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
+        btnFavorites.invalidateIntrinsicContentSize()
+        btnFavorites.sizeToFit()
+        btnFavorites.addTarget(self, action: #selector(self.buttonTapped), for: .touchUpInside)
+        self.delegate!.view.addSubview(btnFavorites)
+    }
+    
+    func haveToRequest() -> Bool {
+        return true
     }
     
     @objc func buttonTapped(sender: UIButton) {
         self.delegate?.createSpinnerView()
-        Firestore.firestore().collection("Recipes").getDocuments() { (querySnapshot, err) in
-            self.delegate?.removeSpinner()
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                var modelList: [Recipe.ViewModel] = []
-                var recipe: Recipe.ViewModel
-                for document in querySnapshot!.documents {
-                    print("\(document.documentID) => \(document.data())")
-                    modelList.append(Recipe.ViewModel(id: document.data().filter { $0.key == "id"}["id"] as! Int,
-                                    title: document.data().filter { $0.key == "title"}["title"] as! String,
-                                    image: document.data().filter { $0.key == "image"}["image"] as! String as! String,
-                                    imageType: document.data().filter { $0.key == "imageType"}["imageType"] as! String))
+        self.delegate?.interactor.requestRecipeListFavorites()
+    }
+}
+
+// MARK: Extension for UI
+extension UIImageView {
+    func load(url: URL) {
+        DispatchQueue.global().async { [weak self] in
+            if let data = try? Data(contentsOf: url) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self?.image = image
+                    }
                 }
-                let vcFavorites = RecipeListViewController(modelList: modelList, features: RecipeListFeaturesEmpty())
-                self.delegate?.navigationController?.pushViewController(vcFavorites, animated: true)
             }
         }
     }

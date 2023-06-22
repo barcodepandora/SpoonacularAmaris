@@ -7,35 +7,6 @@
 
 import Foundation
 
-enum Recipe {
-    struct Response {
-        var id: Int
-        var title: String
-        var image: String
-        var imageType: String
-    }
-    
-    struct ViewModel {
-        var id: Int
-        var title: String
-        var image: String
-        var imageType: String
-    }
-}
-
-struct RecipeData {
-    var id: Int?
-    var title: String?
-    var image: String?
-    var imageType: String?
-    var dictionary: [String: Any] {
-        return ["id": id,
-                "title": title,
-                "image": image,
-                "imageType": imageType]
-    }
-}
-
 class RecipeDecodable: Decodable{
     var id: Int?
     var title: String?

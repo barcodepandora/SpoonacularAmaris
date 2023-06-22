@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		29F9F1029382DF51CB03FB03 /* Pods_SpoonacularAmaris_SpoonacularAmarisUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E1834EFDE016ABA8839146E /* Pods_SpoonacularAmaris_SpoonacularAmarisUITests.framework */; };
+		565CDA962A43C11600118256 /* spoonacular001.png in Resources */ = {isa = PBXBuildFile; fileRef = 565CDA952A43C11600118256 /* spoonacular001.png */; };
+		565CDA982A43D45100118256 /* RecipeListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565CDA972A43D45100118256 /* RecipeListRouter.swift */; };
+		565CDA9B2A43D7DE00118256 /* GetRecipeListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565CDA9A2A43D7DE00118256 /* GetRecipeListUseCase.swift */; };
+		565CDA9D2A43E1F300118256 /* GetRecipeListFavoritesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565CDA9C2A43E1F200118256 /* GetRecipeListFavoritesUseCase.swift */; };
+		565CDA9F2A43E8AE00118256 /* RecipeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565CDA9E2A43E8AE00118256 /* RecipeInteractor.swift */; };
+		565CDAA12A43E9D000118256 /* AddRecipeToFavoritesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565CDAA02A43E9D000118256 /* AddRecipeToFavoritesUseCase.swift */; };
+		565CDAA32A43F1EC00118256 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565CDAA22A43F1EC00118256 /* Recipe.swift */; };
 		56CB25042A43261300E09B6F /* RecipeListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CB25032A43261300E09B6F /* RecipeListTests.swift */; };
 		56CB25082A437CE300E09B6F /* RecipeListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CB25072A437CE300E09B6F /* RecipeListInteractor.swift */; };
 		56CB250A2A437DB600E09B6F /* RecipeListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CB25092A437DB600E09B6F /* RecipeListPresenter.swift */; };
@@ -58,6 +65,13 @@
 		2B90D55B4BC0481CF293BBAD /* Pods-SpoonacularAmaris.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpoonacularAmaris.release.xcconfig"; path = "Target Support Files/Pods-SpoonacularAmaris/Pods-SpoonacularAmaris.release.xcconfig"; sourceTree = "<group>"; };
 		3E1834EFDE016ABA8839146E /* Pods_SpoonacularAmaris_SpoonacularAmarisUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpoonacularAmaris_SpoonacularAmarisUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5474630E4861D81B216FC5AA /* Pods-SpoonacularAmaris.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpoonacularAmaris.debug.xcconfig"; path = "Target Support Files/Pods-SpoonacularAmaris/Pods-SpoonacularAmaris.debug.xcconfig"; sourceTree = "<group>"; };
+		565CDA952A43C11600118256 /* spoonacular001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spoonacular001.png; sourceTree = "<group>"; };
+		565CDA972A43D45100118256 /* RecipeListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListRouter.swift; sourceTree = "<group>"; };
+		565CDA9A2A43D7DE00118256 /* GetRecipeListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRecipeListUseCase.swift; sourceTree = "<group>"; };
+		565CDA9C2A43E1F200118256 /* GetRecipeListFavoritesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRecipeListFavoritesUseCase.swift; sourceTree = "<group>"; };
+		565CDA9E2A43E8AE00118256 /* RecipeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeInteractor.swift; sourceTree = "<group>"; };
+		565CDAA02A43E9D000118256 /* AddRecipeToFavoritesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeToFavoritesUseCase.swift; sourceTree = "<group>"; };
+		565CDAA22A43F1EC00118256 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		56CB25032A43261300E09B6F /* RecipeListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListTests.swift; sourceTree = "<group>"; };
 		56CB25072A437CE300E09B6F /* RecipeListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListInteractor.swift; sourceTree = "<group>"; };
 		56CB25092A437DB600E09B6F /* RecipeListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListPresenter.swift; sourceTree = "<group>"; };
@@ -121,11 +135,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		565CDA992A43D78900118256 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				565CDA9A2A43D7DE00118256 /* GetRecipeListUseCase.swift */,
+				565CDA9C2A43E1F200118256 /* GetRecipeListFavoritesUseCase.swift */,
+				565CDAA02A43E9D000118256 /* AddRecipeToFavoritesUseCase.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
 		56CB250B2A437E8F00E09B6F /* Entity */ = {
 			isa = PBXGroup;
 			children = (
 				56F24E612A42615100A20305 /* ResultsDecodable.swift */,
 				56F24E632A4261FE00A20305 /* RecipeDecodable.swift */,
+				565CDAA22A43F1EC00118256 /* Recipe.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -138,12 +163,12 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
-		56CB250D2A4394AD00E09B6F /* Butler */ = {
+		56CB250D2A4394AD00E09B6F /* Util */ = {
 			isa = PBXGroup;
 			children = (
 				56CB250E2A4394CC00E09B6F /* SpinnerViewController.swift */,
 			);
-			path = Butler;
+			path = Util;
 			sourceTree = "<group>";
 		};
 		56F24E1D2A425BFC00A20305 = {
@@ -177,6 +202,7 @@
 				56F24E2D2A425BFC00A20305 /* ViewController.swift */,
 				56F24E2F2A425BFC00A20305 /* Main.storyboard */,
 				56F24E352A425C0100A20305 /* Assets.xcassets */,
+				565CDA952A43C11600118256 /* spoonacular001.png */,
 				56F24E372A425C0100A20305 /* LaunchScreen.storyboard */,
 				56F24E3A2A425C0100A20305 /* Info.plist */,
 				56F24E772A4295AD00A20305 /* GoogleService-Info.plist */,
@@ -206,9 +232,10 @@
 		56F24E602A4260BE00A20305 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				56CB250D2A4394AD00E09B6F /* Butler */,
-				56CB250C2A4390B500E09B6F /* Networking */,
 				56CB250B2A437E8F00E09B6F /* Entity */,
+				56CB250D2A4394AD00E09B6F /* Util */,
+				56CB250C2A4390B500E09B6F /* Networking */,
+				565CDA992A43D78900118256 /* Domain */,
 				56F24E722A42885400A20305 /* Recipe */,
 				56F24E652A4275A000A20305 /* RecipeList */,
 			);
@@ -224,6 +251,7 @@
 				56F24E6F2A427CD000A20305 /* RecipeListTableViewCell.xib */,
 				56CB25072A437CE300E09B6F /* RecipeListInteractor.swift */,
 				56CB25092A437DB600E09B6F /* RecipeListPresenter.swift */,
+				565CDA972A43D45100118256 /* RecipeListRouter.swift */,
 			);
 			path = RecipeList;
 			sourceTree = "<group>";
@@ -233,6 +261,7 @@
 			children = (
 				56F24E732A42887700A20305 /* RecipeViewController.swift */,
 				56F24E742A42887700A20305 /* RecipeViewController.xib */,
+				565CDA9E2A43E8AE00118256 /* RecipeInteractor.swift */,
 			);
 			path = Recipe;
 			sourceTree = "<group>";
@@ -374,6 +403,7 @@
 				56F24E6D2A42761400A20305 /* RecipeListViewController.xib in Resources */,
 				56F24E362A425C0100A20305 /* Assets.xcassets in Resources */,
 				56F24E762A42887700A20305 /* RecipeViewController.xib in Resources */,
+				565CDA962A43C11600118256 /* spoonacular001.png in Resources */,
 				56F24E312A425BFC00A20305 /* Main.storyboard in Resources */,
 				56F24E782A4295AE00A20305 /* GoogleService-Info.plist in Resources */,
 			);
@@ -504,6 +534,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				56F24E6C2A42761400A20305 /* RecipeListViewController.swift in Sources */,
+				565CDA9B2A43D7DE00118256 /* GetRecipeListUseCase.swift in Sources */,
 				56CB250A2A437DB600E09B6F /* RecipeListPresenter.swift in Sources */,
 				56F24E702A427CD000A20305 /* RecipeListTableViewCell.swift in Sources */,
 				56CB250F2A4394CC00E09B6F /* SpinnerViewController.swift in Sources */,
@@ -513,8 +544,13 @@
 				56F24E2A2A425BFC00A20305 /* AppDelegate.swift in Sources */,
 				56F24E752A42887700A20305 /* RecipeViewController.swift in Sources */,
 				56F24E642A4261FE00A20305 /* RecipeDecodable.swift in Sources */,
+				565CDA9F2A43E8AE00118256 /* RecipeInteractor.swift in Sources */,
+				565CDAA12A43E9D000118256 /* AddRecipeToFavoritesUseCase.swift in Sources */,
+				565CDA982A43D45100118256 /* RecipeListRouter.swift in Sources */,
 				56F24E342A425BFC00A20305 /* SpoonacularAmaris.xcdatamodeld in Sources */,
 				56F24E2C2A425BFC00A20305 /* SceneDelegate.swift in Sources */,
+				565CDAA32A43F1EC00118256 /* Recipe.swift in Sources */,
+				565CDA9D2A43E1F300118256 /* GetRecipeListFavoritesUseCase.swift in Sources */,
 				56F24E5F2A425C7F00A20305 /* APIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

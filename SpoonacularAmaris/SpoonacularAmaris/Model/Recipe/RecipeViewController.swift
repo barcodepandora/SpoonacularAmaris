@@ -6,15 +6,14 @@
 //
 
 import UIKit
-import FirebaseFirestore
 
 class RecipeViewController: UIViewController {
 
+    @IBOutlet weak var imageRecipe: UIImageView!
     @IBOutlet weak var labelTitle: UILabel!
     @IBOutlet weak var buttonAddToFavorites: UIButton!
     
     var recipe: Recipe.ViewModel!
-    var docRef: DocumentReference!
     
     convenience init(recipe: Recipe.ViewModel) {
         self.init()
@@ -26,19 +25,14 @@ class RecipeViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         self.labelTitle.text = recipe.title
-        
-        let collection = Firestore.firestore().collection("Recipes")
+        self.imageRecipe.load(url: URL(string: recipe.image)!)
     }
 
     @IBAction func actionAddToFavorites(_ sender: Any) {
-        let collection = Firestore.firestore().collection("Recipes")
-        let recipe = RecipeData(
-            id: recipe.id,
-            title: recipe.title,
-            image: recipe.image,
-            imageType: recipe.imageType
-        )
-        collection.addDocument(data: recipe.dictionary)
+        RecipeInteractor().addToFavorites(recipe: Recipe.Request(id: recipe.id,
+                                                                 title: recipe.title,
+                                                                 image: recipe.image,
+                                                                 imageType: recipe.imageType))
         self.navigationController?.popViewController(animated: true)
     }
     
