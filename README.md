@@ -120,7 +120,7 @@ func setImageWithURL(_ url: URL) {
 # TODO
 
 ## Diseño por interfaces
-Diseñar y construir las piezas de acuerdo a arquitectura VIPER mediante protocolor
+Diseñar y construir las piezas de acuerdo a arquitectura VIPER mediante protocolos
 
 ## Splash Delay
 Hallar la forma de demorar el mostrar contenido después del splash.
@@ -141,3 +141,6 @@ Este código demora la pieza SceneDelegate; sin embargo funciona en versiones an
             window?.makeKeyAndVisible()
         }
 ```
+## Redundancias en favoritosa
+Validar que al agregar a favoritos no queden recetas repetidas
+
