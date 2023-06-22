@@ -19,7 +19,6 @@ enum ImageError : Error {
 }
 
 extension UIImageView {
-    
     private static var dataTaskKey: UInt8 = 0
     private static var imageCache = NSCache<NSURL,UIImage>()
     
@@ -37,8 +36,6 @@ extension UIImageView {
                 UIImageView.imageCache.setObject(image, forKey: url as NSURL)
             }
             guard self.download?.url == url else { return }
-            // We were still waiting for this image
-            // TODO: Broken jpg or the like, for now just set the image to nil
             self.image = image
             self.download = nil
         }
@@ -50,14 +47,12 @@ extension UIImageView {
                 // Already downloading this image
                 return
             }
-            // Technically we could allow this task to continue to cache the image but for now we'll just cancel
             download.dataTask.cancel()
         }
         if let image = UIImageView.imageCache.object(forKey: url as NSURL) {
             self.image = image
             return
         }
-        // Have to download the image clear it out while we wait
         image = nil
         let task = URLSession.shared.dataTask(with: url) { [weak self] (data, _, error) in
             guard let self = self else { return }
@@ -83,11 +78,6 @@ extension UIImageView {
         task.resume()
     }
     
-    // WORK IN PROGRESS OPTIMIZATION
-    // If two image views look for the same URL back to back the above code would download it twice
-    // Trying to see if I can work out a download at most once solution
-    // Seems to be working fine with the limited data set, as such I left it connected
-    // Prints "The optimization caught a download" when it exits earlier than the other approach would exit
     private static var waitingImageViews = [URL:Set<UIImageView>]()
     private static var downloadTasks = [URL: URLSessionDataTask]()
     private static var urlKey: UInt8 = 0
@@ -108,8 +98,6 @@ extension UIImageView {
             guard let waitingImageViews = UIImageView.waitingImageViews[url] else { return }
             for imageView in waitingImageViews {
                 guard imageView.url == url else { continue }
-                // We were still waiting for this image
-                // TODO: Broken jpg or the like, for now just set the image to nil
                 imageView.image = image
                 imageView.url = nil
             }
@@ -134,7 +122,6 @@ extension UIImageView {
             return
         }
         
-        // Have to download the image clear it out while we wait
         image = nil
         
         defer {
@@ -145,7 +132,6 @@ extension UIImageView {
         }
         
         if UIImageView.downloadTasks[url] != nil {
-            // Already downloading this image, let the defer put us in line to get it
             print("The optimization caught a download")
             return
         }
@@ -171,6 +157,4 @@ extension UIImageView {
         UIImageView.downloadTasks[url] = task
         task.resume()
     }
-    
-    
 }
