@@ -70,7 +70,7 @@ O (Abierto a extensión La clase RecipeListFeaturesProtocol gestiona caracterís
 
 L (Liskov RecipelistViewController utiliza las características RecipeListFeaturesProtocol sin tener en cuenta qué implementación particular utiliza
 
-I (Interfaces
+I (Segregación Interfaces Mediante VIPER es posible definir abstracciones asociadas con propósito específico por abstracción
 
 D (Inyección de dependencias RecipeList*** y sus constructores o inicializadores reciben como parámetros sus objetos requeridos manteniendo el patrón VIPER
 
@@ -119,9 +119,6 @@ func setImageWithURL(_ url: URL) {
 }
 ```  
 # TODO
-
-## Diseño por interfaces
-Diseñar y construir las piezas de acuerdo a arquitectura VIPER mediante protocolos
 
 ## Splash Delay
 Hallar la forma de demorar el mostrar contenido después del splash.
