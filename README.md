@@ -1,5 +1,6 @@
 # SpoonacularAmaris
 Solución app Spoonacular proceso de selección Amaris.
+Por Juan Manuel Moreno Beltran {iOS native}
 
 # Arquitectura
 El diseño y construcción del proyecto siguen los lineamientos de los principios Clean Architeture
@@ -140,7 +141,6 @@ Este código demora la pieza SceneDelegate; sin embargo funciona en versiones an
             window?.rootViewController = navigator
             window?.makeKeyAndVisible()
         }
-```
+
 ## Redundancias en favoritosa
 Validar que al agregar a favoritos no queden recetas repetidas
-
